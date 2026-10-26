@@ -54,10 +54,14 @@ class TestNoSecrets(unittest.TestCase):
         self.assertEqual(hits, [], "发现疑似真实凭证，请改为环境变量：\n" + "\n".join(hits))
 
     def test_no_dotenv_committed(self) -> None:
+        # .env.example 是模板，只含占位符，必须保留；其余 .env* 一律不允许入库
+        ALLOWED = {".env.example"}
         leaking = [
             str(p.relative_to(ROOT))
             for p in ROOT.rglob(".env*")
-            if p.is_file() and not any(part in SKIP_DIRS for part in p.parts)
+            if p.is_file()
+            and not any(part in SKIP_DIRS for part in p.parts)
+            and p.name not in ALLOWED
         ]
         self.assertEqual(leaking, [], f".env 不应入库：{leaking}")
 

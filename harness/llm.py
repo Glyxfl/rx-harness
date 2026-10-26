@@ -234,7 +234,16 @@ class OpenAICompatPolicy:
         )
         with urllib.request.urlopen(req, timeout=60) as resp:
             data = json.loads(resp.read().decode())
-        return data["choices"][0]["message"]["content"]
+        msg = data["choices"][0]["message"]
+        # 记录真实计费 token。注意与 loop.estimate_tokens 的区别：后者只统计可见输出，
+        # 不含推理模型的 reasoning_content，两者的数值不能混用。
+        usage = data.get("usage") or {}
+        self._last_usage = {
+            "prompt_tokens": usage.get("prompt_tokens", 0),
+            "completion_tokens": usage.get("completion_tokens", 0),
+            "reasoning_chars": len(msg.get("reasoning_content") or ""),
+        }
+        return msg["content"]
 
     @staticmethod
     def _parse(raw: str) -> Decision:

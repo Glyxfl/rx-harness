@@ -1,0 +1,353 @@
+{
+  "summaries": [
+    {
+      "label": "skill off / deepseek-reasoner · 宽松判定",
+      "total": 14,
+      "passed": 11,
+      "success_rate": 0.7857,
+      "avg_steps": 4.21,
+      "avg_tokens": 507.6,
+      "failure_buckets": {
+        "step_budget_exceeded": 3
+      }
+    },
+    {
+      "label": "skill on  / deepseek-reasoner · 宽松判定",
+      "total": 14,
+      "passed": 14,
+      "success_rate": 1.0,
+      "avg_steps": 1.21,
+      "avg_tokens": 244.1,
+      "failure_buckets": {}
+    }
+  ],
+  "verdicts": {
+    "skill off / deepseek-reasoner · 宽松判定": [
+      {
+        "task_id": "q01",
+        "ok": true,
+        "reason": "ok",
+        "gold": "383",
+        "got": "城东一店 2026 年 9 月降压片 20mg 的总销量为 383 盒。\n答案：383",
+        "steps": 5,
+        "tokens": 615,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q02",
+        "ok": true,
+        "reason": "ok",
+        "gold": "1437",
+        "got": "全部门店 2026 年 9 月降压片 20mg 共卖出 1437 盒。\n答案：1437",
+        "steps": 4,
+        "tokens": 492,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q03",
+        "ok": true,
+        "reason": "ok",
+        "gold": "S003",
+        "got": "2026 年 9 月总销量最高的门店是 S003。\n答案：S003",
+        "steps": 3,
+        "tokens": 406,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q04",
+        "ok": true,
+        "reason": "ok",
+        "gold": "S003",
+        "got": "2026 年 9 月销售额最高的门店是 S003。\n\n答案：S003",
+        "steps": 3,
+        "tokens": 408,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q05",
+        "ok": true,
+        "reason": "ok",
+        "gold": "P003",
+        "got": "2026 年 9 月总销量最低的产品编号为 P003。\n\n答案：P003",
+        "steps": 3,
+        "tokens": 389,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q06",
+        "ok": true,
+        "reason": "ok",
+        "gold": "139",
+        "got": "2026-09-10 城南三店 降压片 40mg 的库存是 139 盒。\n答案：139",
+        "steps": 5,
+        "tokens": 630,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q07",
+        "ok": true,
+        "reason": "ok",
+        "gold": "3",
+        "got": "满足条件的门店产品组合共有 3 个。\n答案：3",
+        "steps": 3,
+        "tokens": 413,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q08",
+        "ok": false,
+        "reason": "step_budget_exceeded",
+        "gold": "1.0881",
+        "got": "",
+        "steps": 6,
+        "tokens": 592,
+        "stop_reason": "step_budget_exceeded"
+      },
+      {
+        "task_id": "q09",
+        "ok": true,
+        "reason": "ok",
+        "gold": "1796",
+        "got": "城东区门店 2026 年 9 月总销量为 1796 盒。\n答案：1796",
+        "steps": 4,
+        "tokens": 502,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q10",
+        "ok": true,
+        "reason": "ok",
+        "gold": "248",
+        "got": "城西二店 9 月 1-5 日销量合计 1070 盒，6-10 日合计 822 盒，前者比后者多 248 盒。\n答案：248",
+        "steps": 4,
+        "tokens": 526,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q11",
+        "ok": false,
+        "reason": "step_budget_exceeded",
+        "gold": "3.2",
+        "got": "",
+        "steps": 6,
+        "tokens": 582,
+        "stop_reason": "step_budget_exceeded"
+      },
+      {
+        "task_id": "q12",
+        "ok": false,
+        "reason": "step_budget_exceeded",
+        "gold": "7",
+        "got": "",
+        "steps": 6,
+        "tokens": 640,
+        "stop_reason": "step_budget_exceeded"
+      },
+      {
+        "task_id": "q13",
+        "ok": true,
+        "reason": "ok",
+        "gold": "2026-09-04",
+        "got": "2026 年 9 月全部门店合计销量最高的一天是 2026-09-04，当日合计销量为 674。\n答案：2026-09-04",
+        "steps": 3,
+        "tokens": 402,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q14",
+        "ok": true,
+        "reason": "ok",
+        "gold": "2815",
+        "got": "降压片两个规格（20mg、40mg）2026 年 9 月合计销量为 2815 盒。\n答案：2815",
+        "steps": 4,
+        "tokens": 509,
+        "stop_reason": "answered"
+      }
+    ],
+    "skill on  / deepseek-reasoner · 宽松判定": [
+      {
+        "task_id": "q01",
+        "ok": true,
+        "reason": "ok",
+        "gold": "383",
+        "got": "城东一店 2026 年 9 月降压片 20mg 的总销量是 383 盒。\n答案：383",
+        "steps": 1,
+        "tokens": 202,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q02",
+        "ok": true,
+        "reason": "ok",
+        "gold": "1437",
+        "got": "全部门店 2026 年 9 月降压片 20mg（规格 20mg，产品编号 P001）合计销量为 1437 盒。\n答案：1437",
+        "steps": 1,
+        "tokens": 224,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q03",
+        "ok": true,
+        "reason": "ok",
+        "gold": "S003",
+        "got": "2026年9月总销量最高的门店是 S003（销量 2033 盒）。\n答案：S003",
+        "steps": 1,
+        "tokens": 214,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q04",
+        "ok": true,
+        "reason": "ok",
+        "gold": "S003",
+        "got": "答案：S003",
+        "steps": 1,
+        "tokens": 204,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q05",
+        "ok": true,
+        "reason": "ok",
+        "gold": "P003",
+        "got": "2026 年 9 月总销量最低的产品是 P003（销量 1321 盒）。\n答案：P003",
+        "steps": 1,
+        "tokens": 224,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q06",
+        "ok": true,
+        "reason": "ok",
+        "gold": "139",
+        "got": "2026-09-10 城南三店 降压片 40mg 的库存为 139 盒（库存快照口径，日末库存）。\n\n答案：139",
+        "steps": 1,
+        "tokens": 233,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q07",
+        "ok": true,
+        "reason": "ok",
+        "gold": "3",
+        "got": "2026-09-10 库存低于 60 盒的门店产品组合共有 3 个。\n答案：3",
+        "steps": 1,
+        "tokens": 213,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q08",
+        "ok": true,
+        "reason": "ok",
+        "gold": "1.0881",
+        "got": "城东一店 2026 年 9 月降压片 20mg（P001）：销量 383 盒，目标 352 盒，目标完成率 1.0881。\n答案：1.0881",
+        "steps": 1,
+        "tokens": 225,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q09",
+        "ok": true,
+        "reason": "ok",
+        "gold": "1796",
+        "got": "已确认片区存储值为「城东」（库中片区只有 城东/城南/城西，不含「区」字），按 `date LIKE '2026-09-%'` 汇总城东片区各门店销量，结果合计 1796 盒。\n\n答案：1796",
+        "steps": 3,
+        "tokens": 436,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q10",
+        "ok": true,
+        "reason": "ok",
+        "gold": "248",
+        "got": "城西二店 9 月 1-5 日销量 1070 盒，9 月 6-10 日销量 822 盒，1-5 日比 6-10 日多 248 盒。\n答案：248",
+        "steps": 1,
+        "tokens": 243,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q11",
+        "ok": true,
+        "reason": "ok",
+        "gold": "3.2",
+        "got": "城南三店降压片 40mg（P002）在 2026-09-10 的库存为 139 盒；按 9 月销量 441 盒除以 10 天计算，日均销量为 44.1 盒，因此可售约 3.2 天。\n答案：3.2",
+        "steps": 1,
+        "tokens": 243,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q12",
+        "ok": true,
+        "reason": "ok",
+        "gold": "7",
+        "got": "2026 年 9 月目标完成率达到 100% 及以上的门店产品组合共有 7 个（口径：销量取 sales.qty 求和，完成率 = 销量 / target_qty，含恰好等于 100% 的组合）。\n答案：7",
+        "steps": 1,
+        "tokens": 219,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q13",
+        "ok": true,
+        "reason": "ok",
+        "gold": "2026-09-04",
+        "got": "2026 年 9 月全部门店合计销量最高的一天是 2026-09-04。\n\n答案：2026-09-04",
+        "steps": 1,
+        "tokens": 215,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q14",
+        "ok": true,
+        "reason": "ok",
+        "gold": "2815",
+        "got": "降压片两个规格（P001 20mg、P002 40mg）2026 年 9 月合计销量为 2815 盒。\n答案：2815",
+        "steps": 2,
+        "tokens": 322,
+        "stop_reason": "answered"
+      }
+    ]
+  },
+  "mutation_suite": {
+    "hit": 6,
+    "total": 6,
+    "accuracy": 1.0,
+    "cases": [
+      {
+        "mutation": "wrong_filter",
+        "expected": "answered_wrong",
+        "got": "answered_wrong",
+        "hit": true
+      },
+      {
+        "mutation": "wrong_aggregation",
+        "expected": "answered_wrong",
+        "got": "answered_wrong",
+        "hit": true
+      },
+      {
+        "mutation": "wrong_table",
+        "expected": "answered_wrong",
+        "got": "answered_wrong",
+        "hit": true
+      },
+      {
+        "mutation": "unsafe_sql",
+        "expected": "unsafe_sql",
+        "got": "unsafe_sql",
+        "hit": true
+      },
+      {
+        "mutation": "no_answer",
+        "expected": "no_answer",
+        "got": "no_answer",
+        "hit": true
+      },
+      {
+        "mutation": "step_budget",
+        "expected": "step_budget_exceeded",
+        "got": "step_budget_exceeded",
+        "hit": true
+      }
+    ]
+  }
+}
