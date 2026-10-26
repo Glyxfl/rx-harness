@@ -1,0 +1,358 @@
+{
+  "summaries": [
+    {
+      "label": "skill off / deepseek-chat",
+      "total": 14,
+      "passed": 0,
+      "success_rate": 0.0,
+      "avg_steps": 4.71,
+      "avg_tokens": 597.6,
+      "failure_buckets": {
+        "unsafe_sql": 7,
+        "tool_error": 2,
+        "step_budget_exceeded": 5
+      }
+    },
+    {
+      "label": "skill on  / deepseek-chat",
+      "total": 14,
+      "passed": 11,
+      "success_rate": 0.7857,
+      "avg_steps": 1.64,
+      "avg_tokens": 291.4,
+      "failure_buckets": {
+        "unsafe_sql": 1,
+        "tool_error": 2
+      }
+    }
+  ],
+  "verdicts": {
+    "skill off / deepseek-chat": [
+      {
+        "task_id": "q01",
+        "ok": false,
+        "reason": "unsafe_sql",
+        "gold": "383",
+        "got": "",
+        "steps": 5,
+        "tokens": 729,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q02",
+        "ok": false,
+        "reason": "unsafe_sql",
+        "gold": "1437",
+        "got": "",
+        "steps": 4,
+        "tokens": 560,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q03",
+        "ok": false,
+        "reason": "tool_error",
+        "gold": "S003",
+        "got": "",
+        "steps": 3,
+        "tokens": 420,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q04",
+        "ok": false,
+        "reason": "unsafe_sql",
+        "gold": "S003",
+        "got": "",
+        "steps": 4,
+        "tokens": 515,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q05",
+        "ok": false,
+        "reason": "tool_error",
+        "gold": "P003",
+        "got": "",
+        "steps": 3,
+        "tokens": 438,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q06",
+        "ok": false,
+        "reason": "step_budget_exceeded",
+        "gold": "139",
+        "got": "",
+        "steps": 6,
+        "tokens": 670,
+        "stop_reason": "step_budget_exceeded"
+      },
+      {
+        "task_id": "q07",
+        "ok": false,
+        "reason": "unsafe_sql",
+        "gold": "3",
+        "got": "",
+        "steps": 5,
+        "tokens": 702,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q08",
+        "ok": false,
+        "reason": "step_budget_exceeded",
+        "gold": "1.0881",
+        "got": "",
+        "steps": 6,
+        "tokens": 646,
+        "stop_reason": "step_budget_exceeded"
+      },
+      {
+        "task_id": "q09",
+        "ok": false,
+        "reason": "unsafe_sql",
+        "gold": "1796",
+        "got": "",
+        "steps": 4,
+        "tokens": 514,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q10",
+        "ok": false,
+        "reason": "unsafe_sql",
+        "gold": "248",
+        "got": "",
+        "steps": 5,
+        "tokens": 744,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q11",
+        "ok": false,
+        "reason": "step_budget_exceeded",
+        "gold": "3.2",
+        "got": "",
+        "steps": 6,
+        "tokens": 666,
+        "stop_reason": "step_budget_exceeded"
+      },
+      {
+        "task_id": "q12",
+        "ok": false,
+        "reason": "step_budget_exceeded",
+        "gold": "7",
+        "got": "",
+        "steps": 6,
+        "tokens": 673,
+        "stop_reason": "step_budget_exceeded"
+      },
+      {
+        "task_id": "q13",
+        "ok": false,
+        "reason": "unsafe_sql",
+        "gold": "2026-09-04",
+        "got": "",
+        "steps": 3,
+        "tokens": 467,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q14",
+        "ok": false,
+        "reason": "step_budget_exceeded",
+        "gold": "2815",
+        "got": "",
+        "steps": 6,
+        "tokens": 623,
+        "stop_reason": "step_budget_exceeded"
+      }
+    ],
+    "skill on  / deepseek-chat": [
+      {
+        "task_id": "q01",
+        "ok": false,
+        "reason": "unsafe_sql",
+        "gold": "383",
+        "got": "",
+        "steps": 4,
+        "tokens": 535,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q02",
+        "ok": true,
+        "reason": "ok",
+        "gold": "1437",
+        "got": "全部门店 2026 年 9 月降压片 20mg（P001）合计销量为 1437 盒。\n答案：1437",
+        "steps": 1,
+        "tokens": 208,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q03",
+        "ok": true,
+        "reason": "ok",
+        "gold": "S003",
+        "got": "2026 年 9 月总销量最高的门店是 S003。\n答案：S003",
+        "steps": 1,
+        "tokens": 200,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q04",
+        "ok": true,
+        "reason": "ok",
+        "gold": "S003",
+        "got": "2026 年 9 月销售额最高的门店是 S003。\n答案：S003",
+        "steps": 1,
+        "tokens": 187,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q05",
+        "ok": true,
+        "reason": "ok",
+        "gold": "P003",
+        "got": "2026 年 9 月总销量最低的产品是 P003。\n答案：P003",
+        "steps": 1,
+        "tokens": 201,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q06",
+        "ok": true,
+        "reason": "ok",
+        "gold": "139",
+        "got": "2026-09-10 城南三店 降压片 40mg 的库存为 139 盒。\n答案：139",
+        "steps": 1,
+        "tokens": 206,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q07",
+        "ok": true,
+        "reason": "ok",
+        "gold": "3",
+        "got": "2026-09-10 库存低于 60 盒的门店产品组合共有 3 个。\n答案：3",
+        "steps": 1,
+        "tokens": 204,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q08",
+        "ok": false,
+        "reason": "tool_error",
+        "gold": "1.0881",
+        "got": "",
+        "steps": 3,
+        "tokens": 429,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q09",
+        "ok": true,
+        "reason": "ok",
+        "gold": "1796",
+        "got": "城东区门店 2026 年 9 月总销量为 1796 盒。\n答案：1796",
+        "steps": 2,
+        "tokens": 316,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q10",
+        "ok": false,
+        "reason": "tool_error",
+        "gold": "248",
+        "got": "",
+        "steps": 3,
+        "tokens": 427,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q11",
+        "ok": true,
+        "reason": "ok",
+        "gold": "3.2",
+        "got": "城南三店 降压片 40mg（P002）9月总销量441盒，日均销量44.1盒；2026-09-10库存139盒，可售天数约3.2天。\n答案：3.2",
+        "steps": 2,
+        "tokens": 319,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q12",
+        "ok": true,
+        "reason": "ok",
+        "gold": "7",
+        "got": "2026 年 9 月目标完成率达到 100% 的门店产品组合共有 7 个。\n答案：7",
+        "steps": 1,
+        "tokens": 443,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q13",
+        "ok": true,
+        "reason": "ok",
+        "gold": "2026-09-04",
+        "got": "2026年9月全部门店合计销量最高的是2026-09-04。\n答案：2026-09-04",
+        "steps": 1,
+        "tokens": 197,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q14",
+        "ok": true,
+        "reason": "ok",
+        "gold": "2815",
+        "got": "降压片两个规格（P001 20mg、P002 40mg）2026年9月合计销量为 2815 盒。\n答案：2815",
+        "steps": 1,
+        "tokens": 208,
+        "stop_reason": "answered"
+      }
+    ]
+  },
+  "mutation_suite": {
+    "hit": 6,
+    "total": 6,
+    "accuracy": 1.0,
+    "cases": [
+      {
+        "mutation": "wrong_filter",
+        "expected": "answered_wrong",
+        "got": "answered_wrong",
+        "hit": true
+      },
+      {
+        "mutation": "wrong_aggregation",
+        "expected": "answered_wrong",
+        "got": "answered_wrong",
+        "hit": true
+      },
+      {
+        "mutation": "wrong_table",
+        "expected": "answered_wrong",
+        "got": "answered_wrong",
+        "hit": true
+      },
+      {
+        "mutation": "unsafe_sql",
+        "expected": "unsafe_sql",
+        "got": "unsafe_sql",
+        "hit": true
+      },
+      {
+        "mutation": "no_answer",
+        "expected": "no_answer",
+        "got": "no_answer",
+        "hit": true
+      },
+      {
+        "mutation": "step_budget",
+        "expected": "step_budget_exceeded",
+        "got": "step_budget_exceeded",
+        "hit": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rx-harness"
+version = "0.1.0"
+description = "Agent harness + evaluation loop for text-to-SQL on retail store data"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = []
+keywords = ["agent", "llm", "evaluation", "harness", "text-to-sql"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+]
+
+[project.optional-dependencies]
+dev = []
+
+[project.scripts]
+rx-harness = "cli:main"
+
+[tool.setuptools]
+py-modules = ["cli"]
+packages = ["harness", "tools", "bench", "data"]

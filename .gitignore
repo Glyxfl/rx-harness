@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+
+# 本地数据库（由 `python cli.py build` 重新生成，不入库）
+data/*.db
+*.sqlite3
+
+# 凭证：任何情况下都不入库。用环境变量传入
+# （DEEPSEEK_API_KEY / OPENAI_API_KEY / RX_LLM_API_KEY）
+.env
+.env.*
+!.env.example
+
+# 编辑器与系统
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# 临时文件
+*.log
+.pytest_cache/
+.mypy_cache/
