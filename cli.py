@@ -72,6 +72,87 @@ def cmd_coverage(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_evolve(args: argparse.Namespace) -> int:
+    """自进化：在 dev 上诊断并打补丁，用 holdout 检查是否只是记忆。
+
+    不需要 API key——学习者是一个只有"知识缺口"单一缺陷的可控策略，
+    目的是把进化环路本身跑通并定死度量口径，不是测量模型能力。
+    """
+    from data.build_db import build
+
+    if not DB_PATH.exists():
+        build()
+        print(f"业务库不存在，已自动生成：{DB_PATH}")
+
+    import shutil
+
+    from evolve.knowledge import SKILLS_DIR, degrade
+    from evolve.loop import evolve, write_evolve_report
+    from evolve.presets import DEFAULT_DROP_COLUMNS, DEFAULT_DROP_LITERALS
+    from evolve.split import load_split
+
+    tasks = load_tasks()
+    dev, holdout = load_split(tasks)
+    modes = [m.strip() for m in args.modes.split(",") if m.strip()]
+    surfaces = ("skills", "bench") if args.allow_bench else ("skills",)
+    drop_columns = args.drop_column or list(DEFAULT_DROP_COLUMNS)
+    drop_literals = args.drop_literal or list(DEFAULT_DROP_LITERALS)
+    if args.no_degrade:
+        drop_columns, drop_literals = [], []
+
+    summary = []
+    for mode in modes:
+        tag = f"-{args.tag}" if args.tag else ""
+        workdir = ROOT / "reports" / f"evolve-{mode}{tag}"
+        workdir.mkdir(parents=True, exist_ok=True)
+        state = workdir / "state"
+        degrade(
+            SKILLS_DIR,
+            state,
+            drop_columns=drop_columns,
+            drop_literals=drop_literals,
+        )
+        initial = workdir / "initial"
+        if initial.exists():
+            shutil.rmtree(initial)
+        shutil.copytree(state, initial)
+
+        records = evolve(
+            state,
+            dev,
+            holdout,
+            DB_PATH,
+            generations=args.generations,
+            mode=mode,
+            allow_surfaces=surfaces,
+        )
+        path = write_evolve_report(
+            records,
+            title=f"自进化对照 · {mode}",
+            meta={
+                "学习者": "KnowledgeGatePolicy（单一缺陷：知识缺口）",
+                "dev / holdout": f"{len(dev)} / {len(holdout)}",
+                "可改面": "、".join(surfaces),
+                "初始缺口": f"列 {list(drop_columns)}；字面量 {list(drop_literals)}",
+                "最大代数": args.generations,
+            },
+            name=f"evolve-{mode}{tag}",
+        )
+        last = records[-1] if records else None
+        summary.append(
+            {
+                "mode": mode,
+                "dev": f"{last.dev_passed}/{last.dev_total}" if last else "0/0",
+                "holdout": f"{last.holdout_passed}/{last.holdout_total}" if last else "0/0",
+                "generations": len(records),
+                "report": str(path),
+            }
+        )
+
+    print(json.dumps(summary, ensure_ascii=False, indent=2))
+    return 0
+
+
 def _require_key(args: argparse.Namespace) -> bool:
     import os
 
@@ -217,6 +298,40 @@ def main() -> int:
 
     p_cov = sub.add_parser("coverage", help="工程属性实测（不需要 API key）")
     p_cov.set_defaults(func=cmd_coverage)
+
+    p_evo = sub.add_parser("evolve", help="自进化：诊断失败、补知识、用留出集检查泛化（不需要 API key）")
+    p_evo.add_argument(
+        "--modes",
+        default="rule",
+        help="逗号分隔：rule（归纳知识）/ memory（记住原题）/ cheat（改评测集，反例）",
+    )
+    p_evo.add_argument("--generations", type=int, default=6)
+    p_evo.add_argument(
+        "--drop-column",
+        action="append",
+        default=[],
+        metavar="COL",
+        help="初始状态故意缺失的列声明，可重复；默认见 evolve/presets.py",
+    )
+    p_evo.add_argument(
+        "--drop-literal",
+        action="append",
+        default=[],
+        metavar="TEXT",
+        help="初始状态故意缺失的字面量（如 20mg），可重复",
+    )
+    p_evo.add_argument(
+        "--allow-bench",
+        action="store_true",
+        help="放开对 bench/ 的修改权限——只用于演示没有边界约束时进化会退化成什么",
+    )
+    p_evo.add_argument("--tag", default="", help="报告名后缀，便于给不同配置分别存档")
+    p_evo.add_argument(
+        "--no-degrade",
+        action="store_true",
+        help="从现有文档出发（不预先挖缺口），用于看人工文档还漏了什么",
+    )
+    p_evo.set_defaults(func=cmd_evolve)
 
     p_ask = sub.add_parser("ask", help="单问题调试")
     p_ask.add_argument("question")

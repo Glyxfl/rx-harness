@@ -59,6 +59,16 @@ def make_sql_tool(db_path: str | Path):
             cur = conn.execute(safe)
             rows = cur.fetchmany(MAX_ROWS)
             columns = [d[0] for d in (cur.description or [])]
+        except sqlite3.Error as exc:
+            # 猜错列名是最常见的模型失败方式。早期实现让它直接抛出，
+            # 结果是整轮评测中断、grader 里的 tool_error 永远归因为 0。
+            # 把它收敛成一条 Observation，失败才可被归因、进而可被进化修复。
+            return Observation(
+                tool="sql",
+                ok=False,
+                content=f"SQL 执行失败：{exc}",
+                meta={"error": "tool_error", "detail": str(exc), "sql": safe},
+            )
         finally:
             conn.close()
         return Observation(

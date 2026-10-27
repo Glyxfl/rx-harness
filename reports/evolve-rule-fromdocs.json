@@ -1,0 +1,137 @@
+{
+  "title": "自进化对照 · rule",
+  "meta": {
+    "学习者": "KnowledgeGatePolicy（单一缺陷：知识缺口）",
+    "dev / holdout": "30 / 30",
+    "可改面": "skills",
+    "初始缺口": "列 []；字面量 []",
+    "最大代数": 4
+  },
+  "generations": [
+    {
+      "gen": 0,
+      "dev_passed": 22,
+      "dev_total": 30,
+      "holdout_passed": 21,
+      "holdout_total": 30,
+      "patch": "rule-value-domain · 1 题因片区取值写法不符返回空，补值域映射",
+      "accepted": true,
+      "note": "接受：dev 22/30 → 23/30",
+      "evidence": [
+        {
+          "task_id": "q09",
+          "kind": "value_domain",
+          "detail": "过滤片区后返回空（got=NULL），说明片区取值写法与库中不一致",
+          "item": "region"
+        },
+        {
+          "task_id": "q50",
+          "kind": "clarify",
+          "detail": "问题条件明显不全（got=12710，与全表求和一致），却直接给了数而没有确认",
+          "item": ""
+        },
+        {
+          "task_id": "q52",
+          "kind": "clarify",
+          "detail": "问题条件明显不全（got=12710，与全表求和一致），却直接给了数而没有确认",
+          "item": ""
+        },
+        {
+          "task_id": "q53",
+          "kind": "clarify",
+          "detail": "问题条件明显不全（got=12710，与全表求和一致），却直接给了数而没有确认",
+          "item": ""
+        },
+        {
+          "task_id": "q54",
+          "kind": "clarify",
+          "detail": "问题条件明显不全（got=12710，与全表求和一致），却直接给了数而没有确认",
+          "item": ""
+        },
+        {
+          "task_id": "q55",
+          "kind": "clarify",
+          "detail": "问题条件明显不全（got=12710，与全表求和一致），却直接给了数而没有确认",
+          "item": ""
+        },
+        {
+          "task_id": "q56",
+          "kind": "clarify",
+          "detail": "问题条件明显不全（got=12710，与全表求和一致），却直接给了数而没有确认",
+          "item": ""
+        },
+        {
+          "task_id": "q58",
+          "kind": "clarify",
+          "detail": "问题条件明显不全（got=12710，与全表求和一致），却直接给了数而没有确认",
+          "item": ""
+        }
+      ]
+    },
+    {
+      "gen": 1,
+      "dev_passed": 23,
+      "dev_total": 30,
+      "holdout_passed": 24,
+      "holdout_total": 30,
+      "patch": "rule-clarify · 7 题在条件不全时直接给了数，归纳出「缺失维度要先确认」的通用规则",
+      "accepted": true,
+      "note": "接受：dev 23/30 → 30/30",
+      "evidence": [
+        {
+          "task_id": "q50",
+          "kind": "clarify",
+          "detail": "问题条件明显不全（got=12710，与全表求和一致），却直接给了数而没有确认",
+          "item": ""
+        },
+        {
+          "task_id": "q52",
+          "kind": "clarify",
+          "detail": "问题条件明显不全（got=12710，与全表求和一致），却直接给了数而没有确认",
+          "item": ""
+        },
+        {
+          "task_id": "q53",
+          "kind": "clarify",
+          "detail": "问题条件明显不全（got=12710，与全表求和一致），却直接给了数而没有确认",
+          "item": ""
+        },
+        {
+          "task_id": "q54",
+          "kind": "clarify",
+          "detail": "问题条件明显不全（got=12710，与全表求和一致），却直接给了数而没有确认",
+          "item": ""
+        },
+        {
+          "task_id": "q55",
+          "kind": "clarify",
+          "detail": "问题条件明显不全（got=12710，与全表求和一致），却直接给了数而没有确认",
+          "item": ""
+        },
+        {
+          "task_id": "q56",
+          "kind": "clarify",
+          "detail": "问题条件明显不全（got=12710，与全表求和一致），却直接给了数而没有确认",
+          "item": ""
+        },
+        {
+          "task_id": "q58",
+          "kind": "clarify",
+          "detail": "问题条件明显不全（got=12710，与全表求和一致），却直接给了数而没有确认",
+          "item": ""
+        }
+      ]
+    },
+    {
+      "gen": 2,
+      "dev_passed": 30,
+      "dev_total": 30,
+      "holdout_passed": 30,
+      "holdout_total": 30,
+      "patch": "-",
+      "accepted": false,
+      "note": "dev 已全通过，停止",
+      "evidence": []
+    }
+  ]
+}

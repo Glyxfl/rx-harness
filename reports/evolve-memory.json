@@ -1,0 +1,180 @@
+{
+  "title": "自进化对照 · memory",
+  "meta": {
+    "学习者": "KnowledgeGatePolicy（单一缺陷：知识缺口）",
+    "dev / holdout": "30 / 30",
+    "可改面": "skills",
+    "初始缺口": "列 ['region', 'month', 'target_qty']；字面量 ['20mg']",
+    "最大代数": 8
+  },
+  "generations": [
+    {
+      "gen": 0,
+      "dev_passed": 13,
+      "dev_total": 30,
+      "holdout_passed": 15,
+      "holdout_total": 30,
+      "patch": "memory-batch · 把 10 道失败题的原题与标准 SQL 追加为示例（记住题目，不是学会规则）",
+      "accepted": true,
+      "note": "接受：dev 13/30 → 23/30",
+      "evidence": [
+        {
+          "task_id": "q01",
+          "kind": "spec",
+          "detail": "答案 530 与标准值 383 不符，且该品名有 20mg/40mg 两个规格",
+          "item": "spec"
+        },
+        {
+          "task_id": "q08",
+          "kind": "column",
+          "detail": "报错 no such column: target；库中实际列名应为 target_qty",
+          "item": "target_qty"
+        },
+        {
+          "task_id": "q09",
+          "kind": "column",
+          "detail": "报错 no such column: area；库中不存在此列",
+          "item": "area"
+        },
+        {
+          "task_id": "q12",
+          "kind": "column",
+          "detail": "报错 no such column: target；库中实际列名应为 target_qty",
+          "item": "target_qty"
+        },
+        {
+          "task_id": "q22",
+          "kind": "column",
+          "detail": "报错 no such column: target；库中实际列名应为 target_qty",
+          "item": "target_qty"
+        },
+        {
+          "task_id": "q23",
+          "kind": "column",
+          "detail": "报错 no such column: target；库中实际列名应为 target_qty",
+          "item": "target_qty"
+        },
+        {
+          "task_id": "q24",
+          "kind": "column",
+          "detail": "报错 no such column: target；库中实际列名应为 target_qty",
+          "item": "target_qty"
+        },
+        {
+          "task_id": "q29",
+          "kind": "column",
+          "detail": "报错 no such column: target；库中实际列名应为 target_qty",
+          "item": "target_qty"
+        },
+        {
+          "task_id": "q31",
+          "kind": "column",
+          "detail": "报错 no such column: target；库中实际列名应为 target_qty",
+          "item": "target_qty"
+        },
+        {
+          "task_id": "q37",
+          "kind": "column",
+          "detail": "报错 no such column: target；库中实际列名应为 target_qty",
+          "item": "target_qty"
+        },
+        {
+          "task_id": "q50",
+          "kind": "clarify",
+          "detail": "问题条件明显不全（got=12710，与全表求和一致），却直接给了数而没有确认",
+          "item": ""
+        },
+        {
+          "task_id": "q52",
+          "kind": "clarify",
+          "detail": "问题条件明显不全（got=12710，与全表求和一致），却直接给了数而没有确认",
+          "item": ""
+        },
+        {
+          "task_id": "q53",
+          "kind": "clarify",
+          "detail": "问题条件明显不全（got=12710，与全表求和一致），却直接给了数而没有确认",
+          "item": ""
+        },
+        {
+          "task_id": "q54",
+          "kind": "clarify",
+          "detail": "问题条件明显不全（got=12710，与全表求和一致），却直接给了数而没有确认",
+          "item": ""
+        },
+        {
+          "task_id": "q55",
+          "kind": "clarify",
+          "detail": "问题条件明显不全（got=12710，与全表求和一致），却直接给了数而没有确认",
+          "item": ""
+        },
+        {
+          "task_id": "q56",
+          "kind": "clarify",
+          "detail": "问题条件明显不全（got=12710，与全表求和一致），却直接给了数而没有确认",
+          "item": ""
+        },
+        {
+          "task_id": "q58",
+          "kind": "clarify",
+          "detail": "问题条件明显不全（got=12710，与全表求和一致），却直接给了数而没有确认",
+          "item": ""
+        }
+      ]
+    },
+    {
+      "gen": 1,
+      "dev_passed": 23,
+      "dev_total": 30,
+      "holdout_passed": 15,
+      "holdout_total": 30,
+      "patch": "-",
+      "accepted": false,
+      "note": "无可执行补丁，停止",
+      "evidence": [
+        {
+          "task_id": "q50",
+          "kind": "clarify",
+          "detail": "问题条件明显不全（got=12710，与全表求和一致），却直接给了数而没有确认",
+          "item": ""
+        },
+        {
+          "task_id": "q52",
+          "kind": "clarify",
+          "detail": "问题条件明显不全（got=12710，与全表求和一致），却直接给了数而没有确认",
+          "item": ""
+        },
+        {
+          "task_id": "q53",
+          "kind": "clarify",
+          "detail": "问题条件明显不全（got=12710，与全表求和一致），却直接给了数而没有确认",
+          "item": ""
+        },
+        {
+          "task_id": "q54",
+          "kind": "clarify",
+          "detail": "问题条件明显不全（got=12710，与全表求和一致），却直接给了数而没有确认",
+          "item": ""
+        },
+        {
+          "task_id": "q55",
+          "kind": "clarify",
+          "detail": "问题条件明显不全（got=12710，与全表求和一致），却直接给了数而没有确认",
+          "item": ""
+        },
+        {
+          "task_id": "q56",
+          "kind": "clarify",
+          "detail": "问题条件明显不全（got=12710，与全表求和一致），却直接给了数而没有确认",
+          "item": ""
+        },
+        {
+          "task_id": "q58",
+          "kind": "clarify",
+          "detail": "问题条件明显不全（got=12710，与全表求和一致），却直接给了数而没有确认",
+          "item": ""
+        }
+      ]
+    }
+  ]
+}
