@@ -101,6 +101,19 @@ def diagnose(verdicts: list, traces: dict[str, Trace], db_path: Any, task_index:
                 )
             )
 
+        elif v.reason == "over_clarified":
+            # 本可作答却反问。真实模型上这是文档缺口最典型的表现：它读了那句
+            # "表里没有 region 字段"，于是认为做不到，转而去问用户。
+            # 这不是能力问题，是文档里少了一条事实。
+            out.append(
+                Evidence(
+                    task_id=v.task_id,
+                    kind="doc_gap",
+                    detail="题库有确定答案却选择反问，说明文档里缺少作答所需的事实（字段或取值）",
+                    item="schema",
+                )
+            )
+
         elif v.reason == "answered_wrong":
             if any(w in question for w in REGION_WORDS) and (v.got == "" or v.got in ("0", "0.0")):
                 out.append(
@@ -120,6 +133,18 @@ def diagnose(verdicts: list, traces: dict[str, Trace], db_path: Any, task_index:
                         item="spec",
                     )
                 )
+
+        else:
+            # 诊断层覆盖不到的失败形态。记下来，但不假装知道怎么修——
+            # 报告里能看见"这一类失败目前没有对应补丁"，比悄悄跳过它诚实。
+            out.append(
+                Evidence(
+                    task_id=v.task_id,
+                    kind="uncovered",
+                    detail=f"归因为 {v.reason}，当前诊断层没有与该形态对应的知识补丁",
+                    item=v.reason,
+                )
+            )
     return out
 
 
@@ -174,8 +199,11 @@ def propose(
     if not by_kind:
         return []
 
-    order = ["column", "value_domain", "spec", "clarify"]
-    kind = min(by_kind, key=lambda k: order.index(k) if k in order else 99)
+    order = ["column", "value_domain", "spec", "doc_gap", "clarify"]
+    known = [k for k in by_kind if k in order]
+    if not known:
+        return []
+    kind = min(known, key=order.index)
     targets = by_kind[kind]
 
     if kind == "column":
@@ -215,6 +243,20 @@ def propose(
             )
         ]
 
+    if kind == "doc_gap":
+        # 补的是"库里到底有什么"这件事。内容全部从库结构现取，
+        # 不从失败题的标准 SQL 里抄——否则又变成记忆而不是学习。
+        return [
+            Patch(
+                pid="rule-doc-gap",
+                kind="rule",
+                surface="skills",
+                skill="schema",
+                rationale=f"{len(targets)} 题本可作答却反问，按库结构补全字段清单与取值域",
+                text=schema_rebuild_text(real_schema(db_path)) + "\n\n" + value_domain_text(),
+                covers=[t.task_id for t in targets],
+            )
+        ]
     # clarify：把"条件不全却直接作答"的失败归纳成一条通用规则。
     # 规则文本只枚举业务维度，不读判定器用的关键词——否则就是把评分标准抄进文档。
     text = (

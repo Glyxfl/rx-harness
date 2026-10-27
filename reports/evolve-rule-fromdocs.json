@@ -3,6 +3,8 @@
   "meta": {
     "学习者": "KnowledgeGatePolicy（单一缺陷：知识缺口）",
     "dev / holdout": "30 / 30",
+    "重复次数": 1,
+    "接受准则": "dev 逐轮结果的中位数严格提升；单次口径只作对照记录",
     "可改面": "skills",
     "初始缺口": "列 []；字面量 []",
     "最大代数": 4
@@ -16,7 +18,7 @@
       "holdout_total": 30,
       "patch": "rule-value-domain · 1 题因片区取值写法不符返回空，补值域映射",
       "accepted": true,
-      "note": "接受：dev 22/30 → 23/30",
+      "note": "接受：dev 22 → 23（中位数 +1）",
       "evidence": [
         {
           "task_id": "q09",
@@ -66,7 +68,25 @@
           "detail": "问题条件明显不全（got=12710，与全表求和一致），却直接给了数而没有确认",
           "item": ""
         }
-      ]
+      ],
+      "dev_runs_before": [
+        22
+      ],
+      "dev_runs_after": [
+        23
+      ],
+      "single_run_would_accept": true,
+      "margin": 1,
+      "failures": {
+        "q09": "answered_wrong",
+        "q50": "needs_clarification_unmet",
+        "q52": "needs_clarification_unmet",
+        "q53": "needs_clarification_unmet",
+        "q54": "needs_clarification_unmet",
+        "q55": "needs_clarification_unmet",
+        "q56": "needs_clarification_unmet",
+        "q58": "needs_clarification_unmet"
+      }
     },
     {
       "gen": 1,
@@ -76,7 +96,7 @@
       "holdout_total": 30,
       "patch": "rule-clarify · 7 题在条件不全时直接给了数，归纳出「缺失维度要先确认」的通用规则",
       "accepted": true,
-      "note": "接受：dev 23/30 → 30/30",
+      "note": "接受：dev 23 → 30（中位数 +7）",
       "evidence": [
         {
           "task_id": "q50",
@@ -120,7 +140,24 @@
           "detail": "问题条件明显不全（got=12710，与全表求和一致），却直接给了数而没有确认",
           "item": ""
         }
-      ]
+      ],
+      "dev_runs_before": [
+        23
+      ],
+      "dev_runs_after": [
+        30
+      ],
+      "single_run_would_accept": true,
+      "margin": 7,
+      "failures": {
+        "q50": "needs_clarification_unmet",
+        "q52": "needs_clarification_unmet",
+        "q53": "needs_clarification_unmet",
+        "q54": "needs_clarification_unmet",
+        "q55": "needs_clarification_unmet",
+        "q56": "needs_clarification_unmet",
+        "q58": "needs_clarification_unmet"
+      }
     },
     {
       "gen": 2,
@@ -131,7 +168,14 @@
       "patch": "-",
       "accepted": false,
       "note": "dev 已全通过，停止",
-      "evidence": []
+      "evidence": [],
+      "dev_runs_before": [
+        30
+      ],
+      "dev_runs_after": [],
+      "single_run_would_accept": false,
+      "margin": 0,
+      "failures": {}
     }
   ]
 }

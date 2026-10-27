@@ -75,14 +75,19 @@ def cmd_coverage(args: argparse.Namespace) -> int:
 def cmd_evolve(args: argparse.Namespace) -> int:
     """自进化：在 dev 上诊断并打补丁，用 holdout 检查是否只是记忆。
 
-    不需要 API key——学习者是一个只有"知识缺口"单一缺陷的可控策略，
-    目的是把进化环路本身跑通并定死度量口径，不是测量模型能力。
+    policy=rule 时不需要 API key——学习者是一个只有"知识缺口"单一缺陷的可控策略，
+    目的是把进化环路本身跑通并定死度量口径。
+    policy=llm 时用真实模型当学习者，此时失败里既有知识缺口也有能力波动，
+    因此接受准则必须从"单次比较"改成"重复取中位数"，否则分不清补丁效应和采样噪声。
     """
     from data.build_db import build
 
     if not DB_PATH.exists():
         build()
         print(f"业务库不存在，已自动生成：{DB_PATH}")
+
+    if args.policy == "llm" and not _require_key(args):
+        return 2
 
     import shutil
 
@@ -99,6 +104,19 @@ def cmd_evolve(args: argparse.Namespace) -> int:
     drop_literals = args.drop_literal or list(DEFAULT_DROP_LITERALS)
     if args.no_degrade:
         drop_columns, drop_literals = [], []
+
+    if args.policy == "llm":
+        from harness.llm import OpenAICompatPolicy
+
+        def factory(_task):  # noqa: ANN001
+            return OpenAICompatPolicy(
+                model=args.model, base_url=args.base_url, temperature=args.temperature
+            )
+
+        learner = f"OpenAICompatPolicy / {args.model} / temperature={args.temperature}"
+    else:
+        factory = None
+        learner = "KnowledgeGatePolicy（单一缺陷：知识缺口）"
 
     summary = []
     for mode in modes:
@@ -125,13 +143,18 @@ def cmd_evolve(args: argparse.Namespace) -> int:
             generations=args.generations,
             mode=mode,
             allow_surfaces=surfaces,
+            policy_factory=factory,
+            repeats=args.repeats,
+            metric=args.accept_metric,
         )
         path = write_evolve_report(
             records,
             title=f"自进化对照 · {mode}",
             meta={
-                "学习者": "KnowledgeGatePolicy（单一缺陷：知识缺口）",
+                "学习者": learner,
                 "dev / holdout": f"{len(dev)} / {len(holdout)}",
+                "重复次数": args.repeats,
+                "接受准则": f"dev 逐轮结果的中位数严格提升（度量：{args.accept_metric}）；单次口径只作对照记录",
                 "可改面": "、".join(surfaces),
                 "初始缺口": f"列 {list(drop_columns)}；字面量 {list(drop_literals)}",
                 "最大代数": args.generations,
@@ -182,7 +205,7 @@ def cmd_eval(args: argparse.Namespace) -> int:
     tasks = load_tasks()
     if args.limit:
         tasks = tasks[: args.limit]
-    prefix = context_prefix(exclude=args.exclude_skill)
+    prefix = "" if getattr(args, "no_skill", False) else context_prefix(exclude=args.exclude_skill)
     model_factory = lambda _task: OpenAICompatPolicy(model=args.model, base_url=args.base_url)  # noqa: E731
     strict = not getattr(args, "lax", False)
     mode = "" if strict else " · 宽松判定"
@@ -286,6 +309,11 @@ def main() -> int:
     )
     p_eval.add_argument("--repeat", type=int, default=1, help="每个任务重复次数，用于测稳定性")
     p_eval.add_argument(
+        "--no-skill",
+        action="store_true",
+        help="完全不注入知识（与 --ablate 的 off 组等价，但可单独配合 --lax 使用）",
+    )
+    p_eval.add_argument(
         "--lax",
         action="store_true",
         help="宽松判定：只看最终答案，过程中的越权/异常不直接判失败。"
@@ -299,7 +327,7 @@ def main() -> int:
     p_cov = sub.add_parser("coverage", help="工程属性实测（不需要 API key）")
     p_cov.set_defaults(func=cmd_coverage)
 
-    p_evo = sub.add_parser("evolve", help="自进化：诊断失败、补知识、用留出集检查泛化（不需要 API key）")
+    p_evo = sub.add_parser("evolve", help="自进化：诊断失败、补知识、用留出集检查泛化（--policy rule 不需要 key）")
     p_evo.add_argument(
         "--modes",
         default="rule",
@@ -326,6 +354,32 @@ def main() -> int:
         help="放开对 bench/ 的修改权限——只用于演示没有边界约束时进化会退化成什么",
     )
     p_evo.add_argument("--tag", default="", help="报告名后缀，便于给不同配置分别存档")
+    p_evo.add_argument(
+        "--policy",
+        choices=["rule", "llm"],
+        default="rule",
+        help="学习者：rule 是可控的确定性策略（不需要 key），llm 用真实模型（需要 key）",
+    )
+    p_evo.add_argument("--model", default="deepseek-chat")
+    p_evo.add_argument("--base-url", default="https://api.deepseek.com/v1")
+    p_evo.add_argument(
+        "--temperature",
+        type=float,
+        default=0.7,
+        help="仅 --policy llm 生效。默认 0.7 而非 0：重复采样的意义正是暴露抖动",
+    )
+    p_evo.add_argument(
+        "--repeats",
+        type=int,
+        default=1,
+        help="dev 每代重复轮数；>1 时按中位数接受补丁，用于把补丁效应和采样噪声分开",
+    )
+    p_evo.add_argument(
+        "--accept-metric",
+        choices=["count", "rate"],
+        default="count",
+        help="接受度量：count 看通过题数（删题不加分），rate 看准确率（业界常见，但分母可变）",
+    )
     p_evo.add_argument(
         "--no-degrade",
         action="store_true",

@@ -1,0 +1,70 @@
+{
+  "title": "自进化对照 · rule",
+  "meta": {
+    "学习者": "OpenAICompatPolicy / deepseek-chat / temperature=0.7",
+    "dev / holdout": "30 / 30",
+    "重复次数": 3,
+    "接受准则": "dev 逐轮结果的中位数严格提升；单次口径只作对照记录",
+    "可改面": "skills",
+    "初始缺口": "列 ['region', 'month', 'target_qty']；字面量 ['20mg']",
+    "最大代数": 4
+  },
+  "generations": [
+    {
+      "gen": 0,
+      "dev_passed": 28,
+      "dev_total": 30,
+      "holdout_passed": 27,
+      "holdout_total": 30,
+      "patch": "rule-doc-gap · 1 题本可作答却反问，按库结构补全字段清单与取值域",
+      "accepted": true,
+      "note": "接受：dev 27/28/28 → 27/29/29（中位数 +1）",
+      "evidence": [
+        {
+          "task_id": "q09",
+          "kind": "doc_gap",
+          "detail": "题库有确定答案却选择反问，说明文档里缺少作答所需的事实（字段或取值）",
+          "item": "schema"
+        }
+      ],
+      "dev_runs_before": [
+        27,
+        28,
+        28
+      ],
+      "dev_runs_after": [
+        27,
+        29,
+        29
+      ],
+      "single_run_would_accept": false,
+      "margin": 1,
+      "failures": {
+        "q09": "over_clarified",
+        "q29": "answered_wrong"
+      }
+    },
+    {
+      "gen": 1,
+      "dev_passed": 29,
+      "dev_total": 30,
+      "holdout_passed": 29,
+      "holdout_total": 30,
+      "patch": "-",
+      "accepted": false,
+      "note": "无可执行补丁，停止",
+      "evidence": [],
+      "dev_runs_before": [
+        27,
+        29,
+        29
+      ],
+      "dev_runs_after": [],
+      "single_run_would_accept": false,
+      "margin": 0,
+      "failures": {
+        "q29": "answered_wrong"
+      }
+    }
+  ]
+}

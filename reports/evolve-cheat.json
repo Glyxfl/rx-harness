@@ -3,6 +3,8 @@
   "meta": {
     "学习者": "KnowledgeGatePolicy（单一缺陷：知识缺口）",
     "dev / holdout": "30 / 30",
+    "重复次数": 1,
+    "接受准则": "dev 逐轮结果的中位数严格提升；单次口径只作对照记录",
     "可改面": "skills",
     "初始缺口": "列 ['region', 'month', 'target_qty']；字面量 ['20mg']",
     "最大代数": 8
@@ -120,7 +122,32 @@
           "detail": "问题条件明显不全（got=12710，与全表求和一致），却直接给了数而没有确认",
           "item": ""
         }
-      ]
+      ],
+      "dev_runs_before": [
+        13
+      ],
+      "dev_runs_after": [],
+      "single_run_would_accept": false,
+      "margin": 0,
+      "failures": {
+        "q01": "answered_wrong",
+        "q08": "tool_error",
+        "q09": "tool_error",
+        "q12": "tool_error",
+        "q22": "tool_error",
+        "q23": "tool_error",
+        "q24": "tool_error",
+        "q29": "tool_error",
+        "q31": "tool_error",
+        "q37": "tool_error",
+        "q50": "needs_clarification_unmet",
+        "q52": "needs_clarification_unmet",
+        "q53": "needs_clarification_unmet",
+        "q54": "needs_clarification_unmet",
+        "q55": "needs_clarification_unmet",
+        "q56": "needs_clarification_unmet",
+        "q58": "needs_clarification_unmet"
+      }
     }
   ]
 }

@@ -2,13 +2,37 @@
 
 - 学习者：KnowledgeGatePolicy（单一缺陷：知识缺口）
 - dev / holdout：30 / 30
+- 重复次数：1
+- 接受准则：dev 逐轮结果的中位数严格提升；单次口径只作对照记录
 - 可改面：skills
 - 初始缺口：列 ['region', 'month', 'target_qty']；字面量 ['20mg']
 - 最大代数：8
 
-| 代 | dev | holdout | 补丁 | 结果 |
-| --- | --- | --- | --- | --- |
-| 0 | 13/30 | 15/30 | - | 未接受 · 拒绝补丁 cheat-0：修改面 `bench` 不在允许范围 ['skills'] |
+| 代 | dev（中位数） | dev 逐轮 | holdout | 补丁 | 结果 |
+| --- | --- | --- | --- | --- | --- |
+| 0 | 13/30 | 13 | 15/30 | - | 未接受 · 拒绝补丁 cheat-0：修改面 `bench` 不在允许范围 ['skills'] |
+
+## 本轮未通过的题目
+
+| 任务 | 归因 |
+| --- | --- |
+| q01 | `answered_wrong` |
+| q08 | `tool_error` |
+| q09 | `tool_error` |
+| q12 | `tool_error` |
+| q22 | `tool_error` |
+| q23 | `tool_error` |
+| q24 | `tool_error` |
+| q29 | `tool_error` |
+| q31 | `tool_error` |
+| q37 | `tool_error` |
+| q50 | `needs_clarification_unmet` |
+| q52 | `needs_clarification_unmet` |
+| q53 | `needs_clarification_unmet` |
+| q54 | `needs_clarification_unmet` |
+| q55 | `needs_clarification_unmet` |
+| q56 | `needs_clarification_unmet` |
+| q58 | `needs_clarification_unmet` |
 
 ## 最后一轮诊断到的失败证据
 

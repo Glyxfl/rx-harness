@@ -1,0 +1,33 @@
+{
+  "title": "自进化对照 · rule",
+  "meta": {
+    "学习者": "OpenAICompatPolicy / deepseek-chat / temperature=0.7",
+    "dev / holdout": "30 / 30",
+    "重复次数": 3,
+    "接受准则": "dev 逐轮结果的中位数严格提升；单次口径只作对照记录",
+    "可改面": "skills",
+    "初始缺口": "列 ['region', 'month', 'target_qty']；字面量 ['20mg']",
+    "最大代数": 2
+  },
+  "generations": [
+    {
+      "gen": 0,
+      "dev_passed": 28,
+      "dev_total": 30,
+      "holdout_passed": 28,
+      "holdout_total": 30,
+      "patch": "-",
+      "accepted": false,
+      "note": "无可执行补丁，停止",
+      "evidence": [],
+      "dev_runs_before": [
+        28,
+        28,
+        29
+      ],
+      "dev_runs_after": [],
+      "single_run_would_accept": false,
+      "margin": 0
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+run1: 28/30 失败=[('q09', 'over_clarified', '请问「城东区」对应哪些门店（或门店编号）？stores 表里没有区域字段。'), ('q29', 'answered_wrong', '2026 年 9 月各门店合计完成率最高的门店为 S003，完成率为 0.134')]
+run2: 27/30 失败=[('q09', 'over_clarified', '请问「城东区」对应哪些门店编号（或门店名称）？'), ('q29', 'answered_wrong', '各门店 2026 年 9 月合计完成率中最高的是 S003，完成率 0.1344'), ('q53', 'needs_clarification_unmet', '{"thought":"用户只说『9月的数』，未说明要查什么指标（销量/销售额/')]
+归因分布={'over_clarified': 1, 'answered_wrong': 1}

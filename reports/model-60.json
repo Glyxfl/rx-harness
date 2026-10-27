@@ -1,0 +1,1278 @@
+{
+  "summaries": [
+    {
+      "label": "skill off / deepseek-chat",
+      "total": 60,
+      "passed": 11,
+      "success_rate": 0.1833,
+      "avg_steps": 1.02,
+      "avg_tokens": 221.5,
+      "failure_buckets": {
+        "unsafe_sql": 43,
+        "over_clarified": 4,
+        "clarify_off_target": 2
+      }
+    },
+    {
+      "label": "skill on  / deepseek-chat",
+      "total": 60,
+      "passed": 58,
+      "success_rate": 0.9667,
+      "avg_steps": 1.0,
+      "avg_tokens": 217.2,
+      "failure_buckets": {
+        "over_clarified": 1,
+        "answered_wrong": 1
+      }
+    }
+  ],
+  "verdicts": {
+    "skill off / deepseek-chat": [
+      {
+        "task_id": "q01",
+        "ok": false,
+        "reason": "unsafe_sql",
+        "gold": "383",
+        "got": "",
+        "steps": 1,
+        "tokens": 221,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q02",
+        "ok": false,
+        "reason": "unsafe_sql",
+        "gold": "1437",
+        "got": "",
+        "steps": 1,
+        "tokens": 227,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q03",
+        "ok": false,
+        "reason": "unsafe_sql",
+        "gold": "S003",
+        "got": "",
+        "steps": 1,
+        "tokens": 217,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q04",
+        "ok": false,
+        "reason": "unsafe_sql",
+        "gold": "S003",
+        "got": "",
+        "steps": 3,
+        "tokens": 420,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q05",
+        "ok": false,
+        "reason": "unsafe_sql",
+        "gold": "P003",
+        "got": "",
+        "steps": 3,
+        "tokens": 418,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q06",
+        "ok": false,
+        "reason": "unsafe_sql",
+        "gold": "139",
+        "got": "",
+        "steps": 1,
+        "tokens": 211,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q07",
+        "ok": false,
+        "reason": "unsafe_sql",
+        "gold": "3",
+        "got": "",
+        "steps": 1,
+        "tokens": 229,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q08",
+        "ok": false,
+        "reason": "unsafe_sql",
+        "gold": "1.0881",
+        "got": "",
+        "steps": 1,
+        "tokens": 218,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q09",
+        "ok": false,
+        "reason": "unsafe_sql",
+        "gold": "1796",
+        "got": "",
+        "steps": 4,
+        "tokens": 534,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q10",
+        "ok": false,
+        "reason": "over_clarified",
+        "gold": "248",
+        "got": "请问是哪个年份的 9 月 1-5 日和 6-10 日？",
+        "steps": 0,
+        "tokens": 109,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q11",
+        "ok": false,
+        "reason": "unsafe_sql",
+        "gold": "3.2",
+        "got": "",
+        "steps": 1,
+        "tokens": 214,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q12",
+        "ok": false,
+        "reason": "over_clarified",
+        "gold": "7",
+        "got": "请问“目标完成率”按什么口径计算（如实际销售额/目标销售额），以及“门店产品组合”是按门店+产品规格去重计数吗？",
+        "steps": 0,
+        "tokens": 105,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q13",
+        "ok": false,
+        "reason": "unsafe_sql",
+        "gold": "2026-09-04",
+        "got": "",
+        "steps": 1,
+        "tokens": 225,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q14",
+        "ok": false,
+        "reason": "over_clarified",
+        "gold": "2815",
+        "got": "请确认“降压片”对应的产品名称/编码，以及要统计的两个规格分别是什么？",
+        "steps": 0,
+        "tokens": 107,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q15",
+        "ok": false,
+        "reason": "unsafe_sql",
+        "gold": "1892",
+        "got": "",
+        "steps": 1,
+        "tokens": 208,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q16",
+        "ok": false,
+        "reason": "unsafe_sql",
+        "gold": "85436.0",
+        "got": "",
+        "steps": 4,
+        "tokens": 588,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q17",
+        "ok": false,
+        "reason": "unsafe_sql",
+        "gold": "133",
+        "got": "",
+        "steps": 1,
+        "tokens": 204,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q18",
+        "ok": false,
+        "reason": "unsafe_sql",
+        "gold": "6989",
+        "got": "",
+        "steps": 1,
+        "tokens": 225,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q19",
+        "ok": false,
+        "reason": "unsafe_sql",
+        "gold": "1573",
+        "got": "",
+        "steps": 1,
+        "tokens": 200,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q20",
+        "ok": false,
+        "reason": "unsafe_sql",
+        "gold": "1892",
+        "got": "",
+        "steps": 1,
+        "tokens": 219,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q21",
+        "ok": false,
+        "reason": "unsafe_sql",
+        "gold": "66339.7",
+        "got": "",
+        "steps": 1,
+        "tokens": 210,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q22",
+        "ok": false,
+        "reason": "unsafe_sql",
+        "gold": "1.3117",
+        "got": "",
+        "steps": 1,
+        "tokens": 236,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q23",
+        "ok": false,
+        "reason": "unsafe_sql",
+        "gold": "0.7428",
+        "got": "",
+        "steps": 1,
+        "tokens": 214,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q24",
+        "ok": false,
+        "reason": "unsafe_sql",
+        "gold": "1.1506",
+        "got": "",
+        "steps": 1,
+        "tokens": 206,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q25",
+        "ok": false,
+        "reason": "unsafe_sql",
+        "gold": "城南三店",
+        "got": "",
+        "steps": 1,
+        "tokens": 206,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q26",
+        "ok": false,
+        "reason": "unsafe_sql",
+        "gold": "城东一店",
+        "got": "",
+        "steps": 1,
+        "tokens": 205,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q27",
+        "ok": false,
+        "reason": "unsafe_sql",
+        "gold": "10",
+        "got": "",
+        "steps": 1,
+        "tokens": 234,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q28",
+        "ok": false,
+        "reason": "unsafe_sql",
+        "gold": "450",
+        "got": "",
+        "steps": 5,
+        "tokens": 739,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q29",
+        "ok": false,
+        "reason": "unsafe_sql",
+        "gold": "1.3437",
+        "got": "",
+        "steps": 2,
+        "tokens": 322,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q30",
+        "ok": false,
+        "reason": "unsafe_sql",
+        "gold": "2",
+        "got": "",
+        "steps": 1,
+        "tokens": 220,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q31",
+        "ok": false,
+        "reason": "unsafe_sql",
+        "gold": "1.0775",
+        "got": "",
+        "steps": 1,
+        "tokens": 206,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q32",
+        "ok": false,
+        "reason": "unsafe_sql",
+        "gold": "177",
+        "got": "",
+        "steps": 2,
+        "tokens": 347,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q33",
+        "ok": false,
+        "reason": "unsafe_sql",
+        "gold": "572.1",
+        "got": "",
+        "steps": 1,
+        "tokens": 240,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q34",
+        "ok": false,
+        "reason": "unsafe_sql",
+        "gold": "589.8",
+        "got": "",
+        "steps": 3,
+        "tokens": 452,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q35",
+        "ok": false,
+        "reason": "unsafe_sql",
+        "gold": "0.2506",
+        "got": "",
+        "steps": 1,
+        "tokens": 219,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q36",
+        "ok": false,
+        "reason": "unsafe_sql",
+        "gold": "3285",
+        "got": "",
+        "steps": 1,
+        "tokens": 210,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q37",
+        "ok": false,
+        "reason": "unsafe_sql",
+        "gold": "1",
+        "got": "",
+        "steps": 1,
+        "tokens": 229,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q38",
+        "ok": false,
+        "reason": "over_clarified",
+        "gold": "0.0939",
+        "got": "请问“销量”按什么口径统计（销售件数、订单数还是销售额）？",
+        "steps": 0,
+        "tokens": 109,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q39",
+        "ok": false,
+        "reason": "unsafe_sql",
+        "gold": "609",
+        "got": "",
+        "steps": 1,
+        "tokens": 207,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q40",
+        "ok": false,
+        "reason": "unsafe_sql",
+        "gold": "140760.5",
+        "got": "",
+        "steps": 1,
+        "tokens": 213,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q41",
+        "ok": false,
+        "reason": "unsafe_sql",
+        "gold": "33.83",
+        "got": "",
+        "steps": 1,
+        "tokens": 208,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q42",
+        "ok": false,
+        "reason": "unsafe_sql",
+        "gold": "12710",
+        "got": "",
+        "steps": 1,
+        "tokens": 229,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q43",
+        "ok": false,
+        "reason": "unsafe_sql",
+        "gold": "2026-09-03",
+        "got": "",
+        "steps": 1,
+        "tokens": 211,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q44",
+        "ok": false,
+        "reason": "unsafe_sql",
+        "gold": "P002",
+        "got": "",
+        "steps": 1,
+        "tokens": 224,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q45",
+        "ok": false,
+        "reason": "unsafe_sql",
+        "gold": "0.23",
+        "got": "",
+        "steps": 1,
+        "tokens": 212,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q46",
+        "ok": false,
+        "reason": "unsafe_sql",
+        "gold": "P004",
+        "got": "",
+        "steps": 1,
+        "tokens": 205,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q47",
+        "ok": false,
+        "reason": "unsafe_sql",
+        "gold": "3.0603",
+        "got": "",
+        "steps": 1,
+        "tokens": 223,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q48",
+        "ok": false,
+        "reason": "clarify_off_target",
+        "gold": "",
+        "got": "请问“这个月”具体指哪个月（如2024年6月）？",
+        "steps": 0,
+        "tokens": 116,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q49",
+        "ok": true,
+        "reason": "ok",
+        "gold": "",
+        "got": "请问要统计城东一店的哪个指标（销售额、销量还是订单数），以及哪个时间范围？",
+        "steps": 0,
+        "tokens": 102,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q50",
+        "ok": true,
+        "reason": "ok",
+        "gold": "",
+        "got": "请问要查哪个门店、哪个产品规格的库存是否充足？",
+        "steps": 0,
+        "tokens": 113,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q51",
+        "ok": true,
+        "reason": "ok",
+        "gold": "",
+        "got": "请问您要查的是哪个门店（或区域）哪一年的 9 月完成率，以及完成率是按销售额还是按销量计算？",
+        "steps": 0,
+        "tokens": 120,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q52",
+        "ok": true,
+        "reason": "ok",
+        "gold": "",
+        "got": "请问“卖得最好”是指按销量还是按销售额，统计哪个时间范围（如本月、近30天）的数据？",
+        "steps": 0,
+        "tokens": 112,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q53",
+        "ok": true,
+        "reason": "ok",
+        "gold": "",
+        "got": "请问您要查哪一年 9 月的哪个指标（如销售额、订单量）？",
+        "steps": 0,
+        "tokens": 102,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q54",
+        "ok": true,
+        "reason": "ok",
+        "gold": "",
+        "got": "请明确要对比的是哪两个门店（门店编号或名称）？",
+        "steps": 0,
+        "tokens": 113,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q55",
+        "ok": true,
+        "reason": "ok",
+        "gold": "",
+        "got": "请问动销率按什么口径计算（例如：有销售SKU数/总SKU数，还是动销门店数/总门店数），以及统计的时间范围和门店范围是什么？",
+        "steps": 0,
+        "tokens": 128,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q56",
+        "ok": false,
+        "reason": "clarify_off_target",
+        "gold": "",
+        "got": "您想看的“卖得怎么样”是指销售额、销量还是订单数？另外是全部门店还是某个门店？",
+        "steps": 0,
+        "tokens": 118,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q57",
+        "ok": true,
+        "reason": "ok",
+        "gold": "",
+        "got": "请问要统计哪个时间范围、哪个门店或品类的库存周转率？",
+        "steps": 0,
+        "tokens": 115,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q58",
+        "ok": true,
+        "reason": "ok",
+        "gold": "",
+        "got": "请问您指的是哪个产品（产品名称或编号），以及要统计哪个时间范围的销量？",
+        "steps": 0,
+        "tokens": 96,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q59",
+        "ok": true,
+        "reason": "ok",
+        "gold": "",
+        "got": "请问要计算哪个指标的完成率（如销售额、毛利额），以及对应的时间范围和门店范围？",
+        "steps": 0,
+        "tokens": 120,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q60",
+        "ok": true,
+        "reason": "ok",
+        "gold": "",
+        "got": "请问要查询哪个时间范围（如某月/某季度）的销售额？",
+        "steps": 0,
+        "tokens": 98,
+        "stop_reason": "clarified"
+      }
+    ],
+    "skill on  / deepseek-chat": [
+      {
+        "task_id": "q01",
+        "ok": true,
+        "reason": "ok",
+        "gold": "383",
+        "got": "城东一店 2026 年 9 月降压片 20mg 的总销量为 383 盒。\n答案：383",
+        "steps": 2,
+        "tokens": 311,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q02",
+        "ok": true,
+        "reason": "ok",
+        "gold": "1437",
+        "got": "全部门店 2026 年 9 月降压片 20mg（P001）共售出 1437 盒。\n答案：1437",
+        "steps": 1,
+        "tokens": 224,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q03",
+        "ok": true,
+        "reason": "ok",
+        "gold": "S003",
+        "got": "2026 年 9 月总销量最高的门店是 S003。\n答案：S003",
+        "steps": 1,
+        "tokens": 199,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q04",
+        "ok": true,
+        "reason": "ok",
+        "gold": "S003",
+        "got": "2026年9月销售额最高的门店是 S003。\n答案：S003",
+        "steps": 1,
+        "tokens": 193,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q05",
+        "ok": true,
+        "reason": "ok",
+        "gold": "P003",
+        "got": "2026年9月总销量最低的产品是 P003。\n答案：P003",
+        "steps": 1,
+        "tokens": 199,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q06",
+        "ok": true,
+        "reason": "ok",
+        "gold": "139",
+        "got": "2026-09-10 城南三店降压片 40mg 的库存为 139 盒。\n答案：139",
+        "steps": 1,
+        "tokens": 209,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q07",
+        "ok": true,
+        "reason": "ok",
+        "gold": "3",
+        "got": "2026-09-10 库存低于 60 盒的门店产品组合共有 3 个。\n答案：3",
+        "steps": 1,
+        "tokens": 201,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q08",
+        "ok": true,
+        "reason": "ok",
+        "gold": "1.0881",
+        "got": "城东一店 2026 年 9 月降压片 20mg（P001）销量 383 盒，目标 352 盒，目标完成率为 1.0881。\n答案：1.0881",
+        "steps": 2,
+        "tokens": 321,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q09",
+        "ok": true,
+        "reason": "ok",
+        "gold": "1796",
+        "got": "城东区门店 2026 年 9 月总销量为 1796 盒。\n答案：1796",
+        "steps": 3,
+        "tokens": 428,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q10",
+        "ok": true,
+        "reason": "ok",
+        "gold": "248",
+        "got": "城西二店 9 月 1-5 日销量 1070 盒，6-10 日销量 822 盒，前者比后者多 248 盒。\n答案：248",
+        "steps": 2,
+        "tokens": 336,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q11",
+        "ok": true,
+        "reason": "ok",
+        "gold": "3.2",
+        "got": "城南三店降压片 40mg（P002）9 月总销量 441 盒，日均销量 44.1 盒；9-10 库存 139 盒，可售天数约 3.2 天。\n答案：3.2",
+        "steps": 2,
+        "tokens": 353,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q12",
+        "ok": true,
+        "reason": "ok",
+        "gold": "7",
+        "got": "2026 年 9 月目标完成率达到 100% 的门店产品组合共有 7 个。\n答案：7",
+        "steps": 1,
+        "tokens": 256,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q13",
+        "ok": true,
+        "reason": "ok",
+        "gold": "2026-09-04",
+        "got": "2026 年 9 月全部门店合计销量最高的是 2026-09-04。\n答案：2026-09-04",
+        "steps": 1,
+        "tokens": 198,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q14",
+        "ok": true,
+        "reason": "ok",
+        "gold": "2815",
+        "got": "降压片 2026 年 9 月合计销量：20mg 规格 1437 盒，40mg 规格 1378 盒，两规格合计 2815 盒。\n答案：2815",
+        "steps": 1,
+        "tokens": 210,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q15",
+        "ok": true,
+        "reason": "ok",
+        "gold": "1892",
+        "got": "城西二店 2026 年 9 月总销量为 1892 盒。\n答案：1892",
+        "steps": 1,
+        "tokens": 206,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q16",
+        "ok": true,
+        "reason": "ok",
+        "gold": "85436.0",
+        "got": "降压片 40mg 2026 年 9 月的总销售额为 85436.00 元。\n答案：85436.00",
+        "steps": 1,
+        "tokens": 220,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q17",
+        "ok": true,
+        "reason": "ok",
+        "gold": "133",
+        "got": "城东一店 2026-09-03 当天总销量为 133 盒。\n答案：133",
+        "steps": 1,
+        "tokens": 209,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q18",
+        "ok": true,
+        "reason": "ok",
+        "gold": "6989",
+        "got": "2026年8月全部门店的总销量为6989盒。\n答案：6989",
+        "steps": 1,
+        "tokens": 197,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q19",
+        "ok": true,
+        "reason": "ok",
+        "gold": "1573",
+        "got": "2026-09-10 全部门店库存合计为 1573 盒。\n答案：1573",
+        "steps": 1,
+        "tokens": 205,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q20",
+        "ok": false,
+        "reason": "over_clarified",
+        "gold": "1892",
+        "got": "库中「城西区」在 2026 年 9 月没有销量记录，请确认片区名称是否为「城西区」，或提供正确的片区名称。",
+        "steps": 1,
+        "tokens": 209,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q21",
+        "ok": true,
+        "reason": "ok",
+        "gold": "66339.7",
+        "got": "城南区门店 2026 年 9 月总销售额为 66339.70 元。\n答案：66339.70",
+        "steps": 3,
+        "tokens": 409,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q22",
+        "ok": true,
+        "reason": "ok",
+        "gold": "1.3117",
+        "got": "城南三店止咳糖浆 10ml 2026 年 9 月目标完成率为 1.3117（销量 484 盒 / 目标 369 盒）。\n答案：1.3117",
+        "steps": 2,
+        "tokens": 313,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q23",
+        "ok": true,
+        "reason": "ok",
+        "gold": "0.7428",
+        "got": "2026年9月完成率最低的门店产品组合是 S002 门店的 P003 产品，完成率为 0.7428。\n答案：0.7428",
+        "steps": 1,
+        "tokens": 217,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q24",
+        "ok": true,
+        "reason": "ok",
+        "gold": "1.1506",
+        "got": "2026年9月全部门店合计完成率为 1.1506（总销量 5721 盒 / 总目标 4972 盒）。\n答案：1.1506",
+        "steps": 1,
+        "tokens": 247,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q25",
+        "ok": true,
+        "reason": "ok",
+        "gold": "城南三店",
+        "got": "2026年9月销量最高的门店是城南三店（S003），销量 2033 盒。\n答案：城南三店",
+        "steps": 1,
+        "tokens": 195,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q26",
+        "ok": false,
+        "reason": "answered_wrong",
+        "gold": "城东一店",
+        "got": "2026-09-10 库存量最低的门店是城南三店。\n答案：城南三店",
+        "steps": 1,
+        "tokens": 199,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q27",
+        "ok": true,
+        "reason": "ok",
+        "gold": "10",
+        "got": "2026年9月完成率超过90%的门店产品组合共有 10 个。\n答案：10",
+        "steps": 1,
+        "tokens": 249,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q28",
+        "ok": true,
+        "reason": "ok",
+        "gold": "450",
+        "got": "城东区门店的止咳糖浆 10ml 在 2026 年 9 月总销量为 450 盒。\n答案：450",
+        "steps": 2,
+        "tokens": 362,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q29",
+        "ok": true,
+        "reason": "ok",
+        "gold": "1.3437",
+        "got": "各门店合计完成率：S001 1.2560、S002 0.9325、S003 1.3437，最高为 S003。\n答案：1.3437",
+        "steps": 1,
+        "tokens": 251,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q30",
+        "ok": true,
+        "reason": "ok",
+        "gold": "2",
+        "got": "城东一店 2026-09-10 库存低于 60 盒的产品组合共有 2 个。\n答案：2",
+        "steps": 1,
+        "tokens": 226,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q31",
+        "ok": true,
+        "reason": "ok",
+        "gold": "1.0775",
+        "got": "全部门店止咳糖浆 10ml（P003）2026 年 9 月合计销量 1321 盒，合计目标 1226 盒，完成率 1.0775。\n答案：1.0775",
+        "steps": 2,
+        "tokens": 367,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q32",
+        "ok": true,
+        "reason": "ok",
+        "gold": "177",
+        "got": "9月1-5日全部门店销量为 2949 盒，6-10日为 2772 盒，前者比后者多 177 盒。\n答案：177",
+        "steps": 1,
+        "tokens": 205,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q33",
+        "ok": true,
+        "reason": "ok",
+        "gold": "572.1",
+        "got": "2026年9月全部门店总销量5721盒，按本月10天计算，日均销量为572.1盒。\n答案：572.1",
+        "steps": 1,
+        "tokens": 209,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q34",
+        "ok": true,
+        "reason": "ok",
+        "gold": "589.8",
+        "got": "2026年9月1-5日全部门店总销量2949盒，按5天计算日均销量为589.8盒。\n答案：589.8",
+        "steps": 1,
+        "tokens": 210,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q35",
+        "ok": true,
+        "reason": "ok",
+        "gold": "0.2506",
+        "got": "城东一店止咳糖浆 10ml 的 9 月销量为 450 盒，该店 9 月总销量为 1796 盒，占比 0.2506。\n答案：0.2506",
+        "steps": 2,
+        "tokens": 335,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q36",
+        "ok": true,
+        "reason": "ok",
+        "gold": "3285",
+        "got": "2026 年 8 月 20 日至 25 日全部门店的销量合计为 3285 盒。\n答案：3285",
+        "steps": 1,
+        "tokens": 214,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q37",
+        "ok": true,
+        "reason": "ok",
+        "gold": "1",
+        "got": "2026年9月完成率不足80%的门店产品组合共有1个。\n答案：1",
+        "steps": 1,
+        "tokens": 236,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q38",
+        "ok": true,
+        "reason": "ok",
+        "gold": "0.0939",
+        "got": "2026-09-10 单日销量 537 盒，9 月总销量 5721 盒，占比 0.0939。\n答案：0.0939",
+        "steps": 1,
+        "tokens": 208,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q39",
+        "ok": true,
+        "reason": "ok",
+        "gold": "609",
+        "got": "城南三店 9 月销量最高的产品是 P004（感冒颗粒，规格 12袋），销量为 609 盒。\n答案：609",
+        "steps": 1,
+        "tokens": 204,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q40",
+        "ok": true,
+        "reason": "ok",
+        "gold": "140760.5",
+        "got": "降压片两个规格（20mg 与 40mg）2026 年 9 月合计销售额为 140760.50 元。\n答案：140760.50",
+        "steps": 1,
+        "tokens": 210,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q41",
+        "ok": true,
+        "reason": "ok",
+        "gold": "33.83",
+        "got": "2026 年 9 月全部门店的平均单价为 33.83 元/盒。\n答案：33.83",
+        "steps": 1,
+        "tokens": 208,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q42",
+        "ok": true,
+        "reason": "ok",
+        "gold": "12710",
+        "got": "2026年8月和9月两个月合计销量为 12710 盒。\n答案：12710",
+        "steps": 1,
+        "tokens": 205,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q43",
+        "ok": true,
+        "reason": "ok",
+        "gold": "2026-09-03",
+        "got": "2026-09-03\n答案：2026-09-03",
+        "steps": 1,
+        "tokens": 200,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q44",
+        "ok": true,
+        "reason": "ok",
+        "gold": "P002",
+        "got": "2026 年 9 月销售额最高的产品是 P002。\n答案：P002",
+        "steps": 1,
+        "tokens": 188,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q45",
+        "ok": true,
+        "reason": "ok",
+        "gold": "0.23",
+        "got": "城南三店 2026-09-10 库存合计 465 盒，9 月销量合计 2033 盒，库存是销量的 0.23 倍。\n答案：0.23",
+        "steps": 2,
+        "tokens": 324,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q46",
+        "ok": true,
+        "reason": "ok",
+        "gold": "P004",
+        "got": "2026 年 9 月销量最高的产品是 P004。\n答案：P004",
+        "steps": 1,
+        "tokens": 198,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q47",
+        "ok": true,
+        "reason": "ok",
+        "gold": "3.0603",
+        "got": "完成率最高的门店产品组合是 S003 的 P004，完成率为 3.0603。\n答案：3.0603",
+        "steps": 1,
+        "tokens": 231,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q48",
+        "ok": true,
+        "reason": "ok",
+        "gold": "",
+        "got": "请问要查降压片哪个规格的销量：20mg（P001）还是40mg（P002）？",
+        "steps": 0,
+        "tokens": 111,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q49",
+        "ok": true,
+        "reason": "ok",
+        "gold": "",
+        "got": "请问要查城东一店哪个时间段的销量（盒）还是销售额（元）？",
+        "steps": 0,
+        "tokens": 103,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q50",
+        "ok": true,
+        "reason": "ok",
+        "gold": "",
+        "got": "请问要查哪个门店、哪个产品（如降压片需指明20mg还是40mg）的库存是否充足？",
+        "steps": 0,
+        "tokens": 122,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q51",
+        "ok": true,
+        "reason": "ok",
+        "gold": "",
+        "got": "请问要查哪个门店、哪个产品的 9 月完成率？",
+        "steps": 0,
+        "tokens": 107,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q52",
+        "ok": true,
+        "reason": "ok",
+        "gold": "",
+        "got": "您是想问销量最高的门店，还是销量最高的产品（按销量还是销售额）？",
+        "steps": 0,
+        "tokens": 108,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q53",
+        "ok": true,
+        "reason": "ok",
+        "gold": "",
+        "got": "您想看 9 月的哪个指标？比如销量、销售额、目标完成率，还是库存/可售天数？另外是全部门店还是指定门店？",
+        "steps": 0,
+        "tokens": 125,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q54",
+        "ok": true,
+        "reason": "ok",
+        "gold": "",
+        "got": "请问要对比哪两个门店（门店编号）的销量？以及统计的时间范围（如 2026 年 9 月）和产品范围是什么？",
+        "steps": 0,
+        "tokens": 109,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q55",
+        "ok": true,
+        "reason": "ok",
+        "gold": "",
+        "got": "请问动销率按什么口径计算（例如有销量的SKU数÷总SKU数，还是有销量的门店数÷总门店数），以及统计哪个时间范围？",
+        "steps": 0,
+        "tokens": 133,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q56",
+        "ok": true,
+        "reason": "ok",
+        "gold": "",
+        "got": "请问「上周」具体指哪个日期区间（如 2026-09-01 至 2026-09-07），以及要看销量还是销售额？",
+        "steps": 0,
+        "tokens": 119,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q57",
+        "ok": true,
+        "reason": "ok",
+        "gold": "",
+        "got": "您想查哪个门店（或哪个产品）的库存周转？还是全部门店整体？",
+        "steps": 0,
+        "tokens": 163,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q58",
+        "ok": true,
+        "reason": "ok",
+        "gold": "",
+        "got": "请问您指的是哪个产品（产品编号或名称+规格）？",
+        "steps": 0,
+        "tokens": 109,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q59",
+        "ok": true,
+        "reason": "ok",
+        "gold": "",
+        "got": "请问要算哪个时间范围（如 2026-09）、哪家门店、哪个产品的目标完成率？",
+        "steps": 0,
+        "tokens": 122,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q60",
+        "ok": true,
+        "reason": "ok",
+        "gold": "",
+        "got": "请问要查询哪个时间范围（如 2026 年 9 月）、哪家门店或哪个产品的销售额？",
+        "steps": 0,
+        "tokens": 99,
+        "stop_reason": "clarified"
+      }
+    ]
+  },
+  "mutation_suite": {
+    "hit": 6,
+    "total": 6,
+    "accuracy": 1.0,
+    "cases": [
+      {
+        "mutation": "wrong_filter",
+        "expected": "answered_wrong",
+        "got": "answered_wrong",
+        "hit": true
+      },
+      {
+        "mutation": "wrong_aggregation",
+        "expected": "answered_wrong",
+        "got": "answered_wrong",
+        "hit": true
+      },
+      {
+        "mutation": "wrong_table",
+        "expected": "answered_wrong",
+        "got": "answered_wrong",
+        "hit": true
+      },
+      {
+        "mutation": "unsafe_sql",
+        "expected": "unsafe_sql",
+        "got": "unsafe_sql",
+        "hit": true
+      },
+      {
+        "mutation": "no_answer",
+        "expected": "no_answer",
+        "got": "no_answer",
+        "hit": true
+      },
+      {
+        "mutation": "step_budget",
+        "expected": "step_budget_exceeded",
+        "got": "step_budget_exceeded",
+        "hit": true
+      }
+    ]
+  }
+}

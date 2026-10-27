@@ -1,0 +1,663 @@
+{
+  "summaries": [
+    {
+      "label": "openai-compat / deepseek-chat · 宽松判定",
+      "total": 60,
+      "passed": 13,
+      "success_rate": 0.2167,
+      "avg_steps": 0.97,
+      "avg_tokens": 215.9,
+      "failure_buckets": {
+        "over_clarified": 45,
+        "clarify_off_target": 2
+      }
+    }
+  ],
+  "verdicts": {
+    "openai-compat / deepseek-chat · 宽松判定": [
+      {
+        "task_id": "q01",
+        "ok": false,
+        "reason": "over_clarified",
+        "gold": "383",
+        "got": "请问降压片销量数据存放在哪张表（或请提供可查询的表名）？",
+        "steps": 1,
+        "tokens": 208,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q02",
+        "ok": false,
+        "reason": "over_clarified",
+        "gold": "1437",
+        "got": "请问销售数据存放在哪张表（或请提供可查询的表名）？",
+        "steps": 1,
+        "tokens": 229,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q03",
+        "ok": false,
+        "reason": "over_clarified",
+        "gold": "S003",
+        "got": "请问销量数据存放在哪张表（表名是什么）？",
+        "steps": 1,
+        "tokens": 211,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q04",
+        "ok": false,
+        "reason": "over_clarified",
+        "gold": "S003",
+        "got": "请问销售额和门店信息存放在哪张表（或表名是什么）？",
+        "steps": 1,
+        "tokens": 214,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q05",
+        "ok": false,
+        "reason": "over_clarified",
+        "gold": "P003",
+        "got": "请问销量数据存放在哪张表、产品编号和销量字段分别叫什么？",
+        "steps": 1,
+        "tokens": 205,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q06",
+        "ok": false,
+        "reason": "over_clarified",
+        "gold": "139",
+        "got": "请问库存数据存放在哪张表（或请提供可查询的表名清单）？",
+        "steps": 1,
+        "tokens": 210,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q07",
+        "ok": false,
+        "reason": "over_clarified",
+        "gold": "3",
+        "got": "请问库存数据存放在哪张表、库存数量字段和门店产品组合字段分别叫什么？",
+        "steps": 1,
+        "tokens": 223,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q08",
+        "ok": false,
+        "reason": "over_clarified",
+        "gold": "1.0881",
+        "got": "请问业务库中可查询的表名有哪些（例如销售表、目标表的实际名称）？",
+        "steps": 2,
+        "tokens": 352,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q09",
+        "ok": false,
+        "reason": "over_clarified",
+        "gold": "1796",
+        "got": "请问门店销量数据存放在哪张表（表名是什么）？",
+        "steps": 2,
+        "tokens": 301,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q10",
+        "ok": false,
+        "reason": "over_clarified",
+        "gold": "248",
+        "got": "请问销量数据存放在哪张表（或请提供可查询的表名）？",
+        "steps": 1,
+        "tokens": 201,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q11",
+        "ok": false,
+        "reason": "over_clarified",
+        "gold": "3.2",
+        "got": "请问业务库中有哪些可查询的表（或表名清单）？我需要据此定位门店、产品、销量和库存数据。",
+        "steps": 1,
+        "tokens": 214,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q12",
+        "ok": false,
+        "reason": "over_clarified",
+        "gold": "7",
+        "got": "请问“目标完成率”是按什么口径计算的（例如实际销售额/目标销售额），以及“门店产品组合”是按门店+产品规格统计吗？",
+        "steps": 0,
+        "tokens": 106,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q13",
+        "ok": true,
+        "reason": "ok",
+        "gold": "2026-09-04",
+        "got": "2026年9月全部门店合计销量最高的是 2026-09-04。\n答案：2026-09-04",
+        "steps": 3,
+        "tokens": 416,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q14",
+        "ok": false,
+        "reason": "over_clarified",
+        "gold": "2815",
+        "got": "请问「降压片」的两个规格具体是哪两个（如 10mg/20mg 或 每盒 30 片/60 片）？",
+        "steps": 1,
+        "tokens": 217,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q15",
+        "ok": false,
+        "reason": "over_clarified",
+        "gold": "1892",
+        "got": "请问销量数据存放在哪张表（或请提供可查询的表名）？",
+        "steps": 1,
+        "tokens": 217,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q16",
+        "ok": false,
+        "reason": "over_clarified",
+        "gold": "85436.0",
+        "got": "请问销售数据存放在哪张表（表名）？我需要表名才能查询降压片 40mg 2026 年 9 月的销售额。",
+        "steps": 1,
+        "tokens": 220,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q17",
+        "ok": false,
+        "reason": "over_clarified",
+        "gold": "133",
+        "got": "请问销量数据存放在哪张表（或该表的关键字段名）？我需要表名和字段才能查询城东一店 2026-09-03 的总销量。",
+        "steps": 1,
+        "tokens": 235,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q18",
+        "ok": false,
+        "reason": "over_clarified",
+        "gold": "6989",
+        "got": "请问销量数据存放在哪张表、哪个字段？或者能否提供可查询的表名清单？",
+        "steps": 1,
+        "tokens": 196,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q19",
+        "ok": false,
+        "reason": "over_clarified",
+        "gold": "1573",
+        "got": "请提供库存表的表名及关键字段（门店、日期、库存数量、单位）以便查询。",
+        "steps": 1,
+        "tokens": 236,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q20",
+        "ok": false,
+        "reason": "over_clarified",
+        "gold": "1892",
+        "got": "请问「城西区」在库中如何对应门店（是否有区域字段或门店编号清单）？",
+        "steps": 1,
+        "tokens": 252,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q21",
+        "ok": false,
+        "reason": "over_clarified",
+        "gold": "66339.7",
+        "got": "请问门店销售数据存放在哪张表（或哪些表）里？",
+        "steps": 1,
+        "tokens": 209,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q22",
+        "ok": false,
+        "reason": "over_clarified",
+        "gold": "1.3117",
+        "got": "请问目标完成率相关的数据表名是什么（或可查询的表清单）？",
+        "steps": 1,
+        "tokens": 230,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q23",
+        "ok": false,
+        "reason": "over_clarified",
+        "gold": "0.7428",
+        "got": "请问完成率的计算口径是什么（例如实际销售额/目标销售额），以及对应的表和字段名？",
+        "steps": 1,
+        "tokens": 221,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q24",
+        "ok": false,
+        "reason": "over_clarified",
+        "gold": "1.1506",
+        "got": "请问销量与目标数据存放在哪张表、哪些字段中（例如表名及销量、目标、日期、门店字段）？",
+        "steps": 1,
+        "tokens": 207,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q25",
+        "ok": false,
+        "reason": "over_clarified",
+        "gold": "城南三店",
+        "got": "请问门店表和销量表分别叫什么表名？",
+        "steps": 1,
+        "tokens": 218,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q26",
+        "ok": false,
+        "reason": "over_clarified",
+        "gold": "城东一店",
+        "got": "请问库存数据存放在哪张表（或请提供可查询的表名）？",
+        "steps": 1,
+        "tokens": 222,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q27",
+        "ok": false,
+        "reason": "over_clarified",
+        "gold": "10",
+        "got": "请问“完成率”按什么口径计算（例如销售额实际/目标，还是销量实际/目标）？",
+        "steps": 0,
+        "tokens": 112,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q28",
+        "ok": false,
+        "reason": "over_clarified",
+        "gold": "450",
+        "got": "请问销量数据存放在哪张表（或请提供可查询的表名）？",
+        "steps": 2,
+        "tokens": 344,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q29",
+        "ok": false,
+        "reason": "over_clarified",
+        "gold": "1.3437",
+        "got": "请问完成率数据存放在哪张表、用哪个字段表示（以及门店和月份字段名）？",
+        "steps": 1,
+        "tokens": 205,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q30",
+        "ok": false,
+        "reason": "over_clarified",
+        "gold": "2",
+        "got": "请问库存数据存放在哪张表（表名）？",
+        "steps": 1,
+        "tokens": 213,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q31",
+        "ok": false,
+        "reason": "over_clarified",
+        "gold": "1.0775",
+        "got": "请问完成率的分母（目标值）来自哪张表或哪个字段？sales 表中只有销量和金额，没有目标数据。",
+        "steps": 5,
+        "tokens": 679,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q32",
+        "ok": false,
+        "reason": "over_clarified",
+        "gold": "177",
+        "got": "请问销量数据存放在哪张表（表名）？",
+        "steps": 1,
+        "tokens": 210,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q33",
+        "ok": false,
+        "reason": "over_clarified",
+        "gold": "572.1",
+        "got": "请提供可查询的销量表名及字段（门店、日期、销量、单位），或告知允许查询的表清单。",
+        "steps": 1,
+        "tokens": 248,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q34",
+        "ok": false,
+        "reason": "over_clarified",
+        "gold": "589.8",
+        "got": "请提供可查询的销量表名及字段（如日期、门店、销量/盒数字段），或确认是否可直接查询某张已知表？",
+        "steps": 1,
+        "tokens": 245,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q35",
+        "ok": false,
+        "reason": "over_clarified",
+        "gold": "0.2506",
+        "got": "请问销量数据存放在哪张表？或者能否提供该表的字段结构（门店、产品名称、规格、销量、日期等字段名）？",
+        "steps": 1,
+        "tokens": 207,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q36",
+        "ok": false,
+        "reason": "over_clarified",
+        "gold": "3285",
+        "got": "请提供销量数据所在的表名及字段（门店、日期、销量盒数），或告知可查询的业务表清单。",
+        "steps": 2,
+        "tokens": 351,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q37",
+        "ok": false,
+        "reason": "over_clarified",
+        "gold": "1",
+        "got": "请问「完成率」的计算口径是什么（实际值/目标值分别取自哪张表或字段），以及「门店产品组合」如何定义？",
+        "steps": 1,
+        "tokens": 224,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q38",
+        "ok": false,
+        "reason": "over_clarified",
+        "gold": "0.0939",
+        "got": "请提供销量数据所在的表名及日期、销量字段名（或允许我查询的表清单）。",
+        "steps": 1,
+        "tokens": 248,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q39",
+        "ok": false,
+        "reason": "over_clarified",
+        "gold": "609",
+        "got": "请问销量数据存放在哪张表（或请提供可查询的表名）？",
+        "steps": 1,
+        "tokens": 207,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q40",
+        "ok": false,
+        "reason": "over_clarified",
+        "gold": "140760.5",
+        "got": "请问降压片销售数据存放在哪张表（或视图）里？",
+        "steps": 1,
+        "tokens": 205,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q41",
+        "ok": true,
+        "reason": "ok",
+        "gold": "33.83",
+        "got": "2026年9月全部门店的平均单价为33.83元每盒。\n答案：33.83",
+        "steps": 3,
+        "tokens": 439,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q42",
+        "ok": false,
+        "reason": "over_clarified",
+        "gold": "12710",
+        "got": "请问“销量”是指哪个产品规格（或全品类合计）的销量？",
+        "steps": 1,
+        "tokens": 225,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q43",
+        "ok": false,
+        "reason": "over_clarified",
+        "gold": "2026-09-03",
+        "got": "请问销量数据存放在哪张表、日期和销量字段分别叫什么？",
+        "steps": 1,
+        "tokens": 217,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q44",
+        "ok": false,
+        "reason": "over_clarified",
+        "gold": "P002",
+        "got": "请问销售额和产品编号分别存放在哪张表、哪些字段中？",
+        "steps": 1,
+        "tokens": 208,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q45",
+        "ok": false,
+        "reason": "over_clarified",
+        "gold": "0.23",
+        "got": "请问库存和销量数据分别存在哪张表里？表名和关键字段（门店、日期、数量）是什么？",
+        "steps": 2,
+        "tokens": 313,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q46",
+        "ok": false,
+        "reason": "over_clarified",
+        "gold": "P004",
+        "got": "请问销量数据存放在哪张表、销量字段和产品编号字段分别叫什么？",
+        "steps": 1,
+        "tokens": 203,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q47",
+        "ok": false,
+        "reason": "over_clarified",
+        "gold": "3.0603",
+        "got": "请问「完成率」的计算口径是什么（例如实际销售额/目标销售额，还是实际销量/目标销量）？",
+        "steps": 1,
+        "tokens": 230,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q48",
+        "ok": false,
+        "reason": "clarify_off_target",
+        "gold": "",
+        "got": "请问“这个月”具体指哪个月（如 2024-06）？",
+        "steps": 0,
+        "tokens": 116,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q49",
+        "ok": true,
+        "reason": "ok",
+        "gold": "",
+        "got": "请问要统计城东一店哪个时间段的销量还是销售额？",
+        "steps": 0,
+        "tokens": 101,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q50",
+        "ok": true,
+        "reason": "ok",
+        "gold": "",
+        "got": "请问您要查哪家门店、哪个产品规格的库存？",
+        "steps": 0,
+        "tokens": 103,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q51",
+        "ok": true,
+        "reason": "ok",
+        "gold": "",
+        "got": "请问您要查的是哪个门店（或区域）哪一年的 9 月完成率，以及完成率是按销售额还是销量计算？",
+        "steps": 0,
+        "tokens": 119,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q52",
+        "ok": true,
+        "reason": "ok",
+        "gold": "",
+        "got": "请问“卖得最好”是指哪个时间范围、按销量还是销售额来算？",
+        "steps": 0,
+        "tokens": 111,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q53",
+        "ok": true,
+        "reason": "ok",
+        "gold": "",
+        "got": "请问您要查的是哪一年 9 月、哪家门店（或全部门店）的哪个指标（如销售额、订单量）？",
+        "steps": 0,
+        "tokens": 108,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q54",
+        "ok": true,
+        "reason": "ok",
+        "gold": "",
+        "got": "请问要对比哪两个门店（门店编号或名称）的销量？",
+        "steps": 0,
+        "tokens": 114,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q55",
+        "ok": true,
+        "reason": "ok",
+        "gold": "",
+        "got": "请问动销率按什么口径计算（例如有销量SKU数/总SKU数，还是销售金额/库存金额），以及统计的时间范围和门店范围是什么？",
+        "steps": 0,
+        "tokens": 120,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q56",
+        "ok": false,
+        "reason": "clarify_off_target",
+        "gold": "",
+        "got": "您想看的“卖得怎么样”是指销售额、销量还是订单数？",
+        "steps": 0,
+        "tokens": 122,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q57",
+        "ok": true,
+        "reason": "ok",
+        "gold": "",
+        "got": "请问您想按哪个口径看库存周转——周转率还是周转天数，以及对应的时间范围（如近30天/本月）？",
+        "steps": 0,
+        "tokens": 119,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q58",
+        "ok": true,
+        "reason": "ok",
+        "gold": "",
+        "got": "请问您指的是哪个产品（产品名称或编号），以及销量按什么口径统计（如销售数量还是销售金额）？",
+        "steps": 0,
+        "tokens": 99,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q59",
+        "ok": true,
+        "reason": "ok",
+        "gold": "",
+        "got": "请问要计算哪个指标、哪个时间范围的完成率（例如某月某门店的销售额完成率）？",
+        "steps": 0,
+        "tokens": 120,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q60",
+        "ok": true,
+        "reason": "ok",
+        "gold": "",
+        "got": "请问要查询哪个时间范围（如某月/某季度）的销售额？",
+        "steps": 0,
+        "tokens": 99,
+        "stop_reason": "clarified"
+      }
+    ]
+  },
+  "mutation_suite": {
+    "hit": 6,
+    "total": 6,
+    "accuracy": 1.0,
+    "cases": [
+      {
+        "mutation": "wrong_filter",
+        "expected": "answered_wrong",
+        "got": "answered_wrong",
+        "hit": true
+      },
+      {
+        "mutation": "wrong_aggregation",
+        "expected": "answered_wrong",
+        "got": "answered_wrong",
+        "hit": true
+      },
+      {
+        "mutation": "wrong_table",
+        "expected": "answered_wrong",
+        "got": "answered_wrong",
+        "hit": true
+      },
+      {
+        "mutation": "unsafe_sql",
+        "expected": "unsafe_sql",
+        "got": "unsafe_sql",
+        "hit": true
+      },
+      {
+        "mutation": "no_answer",
+        "expected": "no_answer",
+        "got": "no_answer",
+        "hit": true
+      },
+      {
+        "mutation": "step_budget",
+        "expected": "step_budget_exceeded",
+        "got": "step_budget_exceeded",
+        "hit": true
+      }
+    ]
+  }
+}

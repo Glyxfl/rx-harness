@@ -3,6 +3,8 @@
   "meta": {
     "学习者": "KnowledgeGatePolicy（单一缺陷：知识缺口）",
     "dev / holdout": "30 / 30",
+    "重复次数": 1,
+    "接受准则": "dev 逐轮结果的中位数严格提升；单次口径只作对照记录",
     "可改面": "skills",
     "初始缺口": "列 ['region', 'month', 'target_qty']；字面量 ['20mg']",
     "最大代数": 8
@@ -16,7 +18,7 @@
       "holdout_total": 30,
       "patch": "rule-schema · 9 题因列名猜错失败（['area', 'target_qty']），按库结构重建字段清单",
       "accepted": true,
-      "note": "接受：dev 13/30 → 20/30",
+      "note": "接受：dev 13 → 20（中位数 +7）",
       "evidence": [
         {
           "task_id": "q01",
@@ -120,7 +122,34 @@
           "detail": "问题条件明显不全（got=12710，与全表求和一致），却直接给了数而没有确认",
           "item": ""
         }
-      ]
+      ],
+      "dev_runs_before": [
+        13
+      ],
+      "dev_runs_after": [
+        20
+      ],
+      "single_run_would_accept": true,
+      "margin": 7,
+      "failures": {
+        "q01": "answered_wrong",
+        "q08": "tool_error",
+        "q09": "tool_error",
+        "q12": "tool_error",
+        "q22": "tool_error",
+        "q23": "tool_error",
+        "q24": "tool_error",
+        "q29": "tool_error",
+        "q31": "tool_error",
+        "q37": "tool_error",
+        "q50": "needs_clarification_unmet",
+        "q52": "needs_clarification_unmet",
+        "q53": "needs_clarification_unmet",
+        "q54": "needs_clarification_unmet",
+        "q55": "needs_clarification_unmet",
+        "q56": "needs_clarification_unmet",
+        "q58": "needs_clarification_unmet"
+      }
     },
     {
       "gen": 1,
@@ -130,7 +159,7 @@
       "holdout_total": 30,
       "patch": "rule-value-domain · 1 题因片区取值写法不符返回空，补值域映射",
       "accepted": true,
-      "note": "接受：dev 20/30 → 21/30",
+      "note": "接受：dev 20 → 21（中位数 +1）",
       "evidence": [
         {
           "task_id": "q01",
@@ -192,7 +221,27 @@
           "detail": "问题条件明显不全（got=12710，与全表求和一致），却直接给了数而没有确认",
           "item": ""
         }
-      ]
+      ],
+      "dev_runs_before": [
+        20
+      ],
+      "dev_runs_after": [
+        21
+      ],
+      "single_run_would_accept": true,
+      "margin": 1,
+      "failures": {
+        "q01": "answered_wrong",
+        "q08": "answered_wrong",
+        "q09": "answered_wrong",
+        "q50": "needs_clarification_unmet",
+        "q52": "needs_clarification_unmet",
+        "q53": "needs_clarification_unmet",
+        "q54": "needs_clarification_unmet",
+        "q55": "needs_clarification_unmet",
+        "q56": "needs_clarification_unmet",
+        "q58": "needs_clarification_unmet"
+      }
     },
     {
       "gen": 2,
@@ -202,7 +251,7 @@
       "holdout_total": 30,
       "patch": "rule-spec · 2 题在双规格产品上答错，补规格必须显式指定的规则",
       "accepted": true,
-      "note": "接受：dev 21/30 → 23/30",
+      "note": "接受：dev 21 → 23（中位数 +2）",
       "evidence": [
         {
           "task_id": "q01",
@@ -258,7 +307,26 @@
           "detail": "问题条件明显不全（got=12710，与全表求和一致），却直接给了数而没有确认",
           "item": ""
         }
-      ]
+      ],
+      "dev_runs_before": [
+        21
+      ],
+      "dev_runs_after": [
+        23
+      ],
+      "single_run_would_accept": true,
+      "margin": 2,
+      "failures": {
+        "q01": "answered_wrong",
+        "q08": "answered_wrong",
+        "q50": "needs_clarification_unmet",
+        "q52": "needs_clarification_unmet",
+        "q53": "needs_clarification_unmet",
+        "q54": "needs_clarification_unmet",
+        "q55": "needs_clarification_unmet",
+        "q56": "needs_clarification_unmet",
+        "q58": "needs_clarification_unmet"
+      }
     },
     {
       "gen": 3,
@@ -268,7 +336,7 @@
       "holdout_total": 30,
       "patch": "rule-clarify · 7 题在条件不全时直接给了数，归纳出「缺失维度要先确认」的通用规则",
       "accepted": true,
-      "note": "接受：dev 23/30 → 30/30",
+      "note": "接受：dev 23 → 30（中位数 +7）",
       "evidence": [
         {
           "task_id": "q50",
@@ -312,7 +380,24 @@
           "detail": "问题条件明显不全（got=12710，与全表求和一致），却直接给了数而没有确认",
           "item": ""
         }
-      ]
+      ],
+      "dev_runs_before": [
+        23
+      ],
+      "dev_runs_after": [
+        30
+      ],
+      "single_run_would_accept": true,
+      "margin": 7,
+      "failures": {
+        "q50": "needs_clarification_unmet",
+        "q52": "needs_clarification_unmet",
+        "q53": "needs_clarification_unmet",
+        "q54": "needs_clarification_unmet",
+        "q55": "needs_clarification_unmet",
+        "q56": "needs_clarification_unmet",
+        "q58": "needs_clarification_unmet"
+      }
     },
     {
       "gen": 4,
@@ -323,7 +408,14 @@
       "patch": "-",
       "accepted": false,
       "note": "dev 已全通过，停止",
-      "evidence": []
+      "evidence": [],
+      "dev_runs_before": [
+        30
+      ],
+      "dev_runs_after": [],
+      "single_run_would_accept": false,
+      "margin": 0,
+      "failures": {}
     }
   ]
 }

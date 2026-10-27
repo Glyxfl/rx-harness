@@ -10,6 +10,8 @@ from __future__ import annotations
 import json
 import os
 import re
+import time
+import urllib.error
 import urllib.request
 from dataclasses import dataclass
 from typing import Any, Callable
@@ -253,8 +255,7 @@ class OpenAICompatPolicy:
                 "Authorization": f"Bearer {key}",
             },
         )
-        with urllib.request.urlopen(req, timeout=60) as resp:
-            data = json.loads(resp.read().decode())
+        data = self._post_with_retry(req)
         msg = data["choices"][0]["message"]
         # 记录真实计费 token。注意与 loop.estimate_tokens 的区别：后者只统计可见输出，
         # 不含推理模型的 reasoning_content，两者的数值不能混用。
@@ -265,6 +266,30 @@ class OpenAICompatPolicy:
             "reasoning_chars": len(msg.get("reasoning_content") or ""),
         }
         return msg["content"]
+
+    def _post_with_retry(self, req: urllib.request.Request, attempts: int = 4) -> dict[str, Any]:
+        """限流与瞬时故障重试。
+
+        单次评测里一次 429 只废掉一道题，可以重跑；但自进化一轮要发上千次请求、
+        跑几十分钟，中途任何一个未捕获的异常都会让整轮作废。所以这里必须重试。
+        只重试可恢复的错误（429 / 5xx / 连接超时），4xx 里的鉴权与参数错误直接抛。
+        """
+        delay = 2.0
+        last: Exception | None = None
+        for attempt in range(attempts):
+            try:
+                with urllib.request.urlopen(req, timeout=90) as resp:
+                    return json.loads(resp.read().decode())
+            except urllib.error.HTTPError as exc:
+                last = exc
+                if exc.code not in (408, 409, 429) and exc.code < 500:
+                    raise
+            except (urllib.error.URLError, TimeoutError) as exc:
+                last = exc
+            if attempt < attempts - 1:
+                time.sleep(delay)
+                delay *= 2
+        raise RuntimeError(f"调用模型失败（重试 {attempts} 次）：{last}") from last
 
     @staticmethod
     def _parse(raw: str) -> Decision:

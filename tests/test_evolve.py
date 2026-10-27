@@ -118,5 +118,45 @@ class TestProposeSurface(unittest.TestCase):
         self.assertEqual(patch.surface, "skills")
 
 
+class TestDiagnosisCoverage(unittest.TestCase):
+    """诊断层的覆盖面决定了进化能学到什么。
+
+    换真模型后出现的第一类失败是"本可作答却反问"，第一版诊断层没有对应分支，
+    整个循环在第 0 代就因"无可执行补丁"停下。这里把两种情形都钉住。
+    """
+
+    @staticmethod
+    def _verdict(task_id: str, reason: str, got: str = "") -> object:
+        from bench.grader import Verdict
+
+        return Verdict(task_id=task_id, ok=False, reason=reason, gold="1", got=got, steps=0, tokens=0, stop_reason="")
+
+    def test_over_clarified_maps_to_doc_gap(self) -> None:
+        from evolve.operators import diagnose
+
+        out = diagnose([self._verdict("q20", "over_clarified")], {}, DB_PATH, {"q20": {"question": "城西区 9 月销量"}})
+        self.assertEqual([e.kind for e in out], ["doc_gap"])
+        patch = propose(out, "rule", DB_PATH, {})[0]
+        self.assertEqual(patch.skill, "schema")
+        self.assertIn("region", patch.text)
+
+    def test_uncovered_reason_is_recorded_not_patched(self) -> None:
+        from evolve.operators import diagnose
+
+        out = diagnose([self._verdict("q29", "no_answer")], {}, DB_PATH, {"q29": {"question": "x"}})
+        self.assertEqual([e.kind for e in out], ["uncovered"])
+        # 认不出的失败形态不允许造出一条补丁——否则等于把"不知道"伪装成"知道"
+        self.assertEqual(propose(out, "rule", DB_PATH, {}), [])
+
+    def test_median_ignores_outlier(self) -> None:
+        from evolve.loop import _median
+
+        self.assertEqual(_median([27, 28, 28]), 28)
+        self.assertEqual(_median([27, 29, 29]), 29)
+        self.assertEqual(_median([28, 30, 30]), 30)
+        # 单次口径会拿 27 和 27 比，结论是"没提升"；中位数能看见 +1
+        self.assertGreater(_median([27, 29, 29]), _median([27, 28, 28]))
+
+
 if __name__ == "__main__":
     unittest.main()

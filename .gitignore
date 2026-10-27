@@ -35,3 +35,4 @@ reports/_test_*/
 reports/evolve-*/state/
 reports/evolve-*/initial/
 reports/evolve-smoke/
+reports/probe-*/state/
