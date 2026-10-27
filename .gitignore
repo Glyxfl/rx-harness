@@ -29,6 +29,7 @@ Thumbs.db
 .mypy_cache/
 
 # 自进化：过程状态与测试中间产物不入库，只保留 reports/evolve-*.md 与 .json
+reports/.snapshot/
 reports/evolve-*/.snapshot/
 reports/_test_*/
 reports/evolve-*/state/
