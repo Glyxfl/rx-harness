@@ -39,7 +39,7 @@ L4 是刻意加的一层。前三层的问题，补足 schema 和口径基本就
 | 领域知识 | `harness/skills.py`、`skills/` | 用 `SKILL.md` 注入字段定义与业务口径 |
 | 安全边界 | `tools/sql.py` 静态 SQL 校验 | 只读数据场景下以 SELECT 校验、表白名单、禁多语句替代容器沙箱 |
 | 评测 | `bench/grader.py` | 不做公开基准总分，只做业务标量对错、澄清形态判定加归因标签 |
-| 自进化 | 未实现 | 缺少稳定评测与足量样本时无法验证收益 |
+| 自进化 | `evolve/` | 只在 `skills/` 上做贪心搜索，接受与否只看 dev；补丁形态由人给定，算子不会自己涌现 |
 
 ## 目录结构
 
@@ -53,7 +53,7 @@ evolve/     自进化：dev/holdout 划分、失败诊断、补丁、只在 dev 
 cli.py      build / eval / coverage / evolve / ask
 ```
 
-一次请求的执行路径：
+链路总览（三种出口各自去向）：
 
 ```
 question
@@ -66,6 +66,43 @@ question
             └─ Answer(value)     ──► 判定「标量是否正确」
                                       全程记录 Trace，由 grader 归因
 ```
+
+## 一次问答的内部过程
+
+`ask` 与 `eval` 走同一条链路，差别只落在第 6 步。下面以「城东一店 2026 年 9 月降压片 20mg 卖了多少盒」为例，逐步说明每一环实际在做什么、对应的代码在哪。
+
+**1｜入口。** `cli.py`。`ask` 把用户输入包成一条临时任务（`id=adhoc`、`max_steps=6`）；`eval` 从 `bench/tasks.jsonl` 逐条取任务，每题生成一份独立 `Trace`。两者的任务结构一致，所以调试时的行为就是评测时的行为。
+
+**2｜拼上下文。** 这一步决定后面所有事。`context_prefix()` 读取 `skills/*/SKILL.md`，把表结构（5 张表、字段名与类型）和业务口径（销量按 `qty` 求和即盒数）拼成一段文本，前置到问题之前；`registry.describe()` 再把工具签名渲染成 `sql(sql) -> 执行只读查询`。模型收到的不是用户那句话，而是「说明书 + 工具清单 + 问题」。
+
+这一层是实测中收益最大的一层：同样的模型，注入内容从无到有，60 条任务集的通过数从 11 升到 58（见 B 节）。
+
+**3｜模型决策。** `OpenAICompatPolicy.decide()` 发一次请求，`_parse()` 把返回的 JSON 解析为 `Decision`，只允许三种出口：
+
+| 出口 | 模型输出 | 后续动作 |
+| --- | --- | --- |
+| 调用工具 | `{"tool":"sql","args":{"sql":"SELECT ..."}}` | 进入第 4 步，循环继续 |
+| 直接作答 | `{"answer":"答案：383"}` | 进入第 6 步，`stop_reason=answered` |
+| 反问澄清 | `{"clarify":"请问是 20mg 还是 40mg？"}` | 立即终止，`stop_reason=clarified` |
+
+在 `loop.py` 中，澄清的判断排在作答之前——能问就先问，不猜。这是 L4 那层任务的实现基础；没有这个出口，含糊问题只能以「给一个数」收场。
+
+**4｜静态校验。** `tools/sql.py:check_sql()` 五条硬规则：必须以 `SELECT`/`WITH` 开头、不得含 `;`（禁多语句）、不得含注释符、不得含写操作关键字（`insert`/`update`/`drop`/`attach`/`pragma` 等）、`FROM`/`JOIN` 后的表名必须在 `{stores, products, sales, inventory, targets}` 内。通过后连接 `file:...?mode=ro`，连接层本身也是只读。
+
+校验失败不抛异常，而是返回一条 `Observation(ok=False, meta={"error":"unsafe_sql"})`，模型能看到「被拒了、原因是什么」。这一点很关键：如果直接抛异常，模型没有机会换个写法，失败也无法被归因。同理，`sqlite3.Error` 会被收敛成 `tool_error` 而不是中断整轮——早期版本正是让它直接抛出，导致该归因一直是死代码。
+
+**5｜观测回填。** 结果（列名 + 最多 200 行）序列化后写回上下文，连同完整历史再请求一次模型。这里有两个硬预算：步数 6、token 6000。用尽即停，`stop_reason` 记为 `step_budget_exceeded` 或 `token_budget_exceeded`。第 3 至 5 步构成循环，也就是 ReAct 的 think → act → observe。
+
+**6｜收尾。** 两条岔路：
+
+- `ask`：逐步打印 thought、SQL、执行结果，供人工观察，不评分。
+- `eval`：`grader.grade()` 用该题的 gold SQL 现算标准值，与 `answer` 末行「答案：」之后的值比对，并给出 12 类归因标签之一。判定支持 strict / lax 两种口径（见 A 节）。
+
+## 为什么要逐步留痕
+
+留痕不是为了日志好看，是为了**失败能被定位到具体一步**。同一个「答错」，可能是第 3 步没想出来（`answered_wrong`）、第 4 步被拦下（`unsafe_sql`）、第 5 步看错结果，或者第 2 步根本没给对信息（`tool_error` 里大量是列名猜错）。没有逐步 `Trace`，这些情况在指标上都只是「错」，无法给出处理方向，也就无法驱动 `evolve/` 那层的补丁生成。
+
+同样地，`0/14` 与 `14/14` 的差别来自第 2 步注入的内容；`8/14 造成数据损坏` 来自拆掉第 4 步后跑同一批 SQL。评测的所有结论都可以回到这条链路上的某一步。
 
 ## 快速开始
 
