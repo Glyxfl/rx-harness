@@ -25,11 +25,17 @@ class Observation:
 
 @dataclass
 class Decision:
-    """策略（LLM 或规则）在单步中的决策。call 与 answer 二选一。"""
+    """策略（LLM 或规则）在单步中的决策。call / answer / clarify 三选一。
+
+    clarify 是第三种形态，容易被忽略：当问题本身缺信息时，正确的动作不是查库，
+    而是先问清楚。缺了这一项，评测只能奖励"随便给个数"，无法奖励"该问就问"。
+    """
 
     thought: str
     call: Optional[ToolCall] = None
     answer: Optional[str] = None
+    clarify: Optional[str] = None
+
 
 
 @dataclass
@@ -45,6 +51,7 @@ class Trace:
     task_id: str
     steps: list[Step] = field(default_factory=list)
     answer: Optional[str] = None
+    clarify: Optional[str] = None
     tokens: int = 0
     stop_reason: str = "unknown"
 

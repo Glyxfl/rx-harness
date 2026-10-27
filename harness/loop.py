@@ -37,6 +37,13 @@ def run(
         )
         trace.tokens += estimate_tokens(decision.thought) + 80
 
+        # 反问澄清：问题本身缺信息时，正确的收尾是一次提问，不是一次查询。
+        # 排在 answer 之前，因为"我先问清楚"比"我猜一个"优先级更高。
+        if decision.clarify is not None:
+            trace.clarify = decision.clarify
+            trace.stop_reason = "clarified"
+            return trace
+
         if decision.answer is not None:
             trace.answer = decision.answer
             trace.stop_reason = "answered"

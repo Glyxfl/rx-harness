@@ -13,6 +13,7 @@ from typing import Any, Callable
 
 from harness.llm import (
     MUTATORS,
+    ClarifyPolicy,
     MutatedPolicy,
     OraclePolicy,
     RepeatingPolicy,
@@ -74,6 +75,13 @@ def evaluate(
 
 
 def oracle_factory(task: dict[str, Any]):
+    """链路上限校准。
+
+    对"该提问"的任务，正确形态不是一个数值，所以 oracle 直接给出带关键缺口的问句。
+    注意这只校准判定器能否识别提问形态，不代表模型能力。
+    """
+    if str(task.get("expect", "answer")) == "clarify":
+        return ClarifyPolicy(keywords=list(task.get("clarify_keywords") or []))
     return OraclePolicy(sql=task["gold_sql"])
 
 
@@ -94,6 +102,8 @@ MUTATION_CASES = [
 
 
 def mutation_suite(task: dict[str, Any], db_path: Path = DB_PATH) -> list[dict[str, Any]]:
+    if not task.get("gold_sql"):
+        return []
     results = []
     for name, kind, expected in MUTATION_CASES:
         registry = build_registry(db_path)

@@ -1,0 +1,1274 @@
+{
+  "summaries": [
+    {
+      "label": "oracle（链路上限，校准用）",
+      "total": 60,
+      "passed": 60,
+      "success_rate": 1.0,
+      "avg_steps": 0.78,
+      "avg_tokens": 150.4,
+      "failure_buckets": {}
+    },
+    {
+      "label": "heuristic（朴素实现基线）",
+      "total": 60,
+      "passed": 9,
+      "success_rate": 0.15,
+      "avg_steps": 1.0,
+      "avg_tokens": 165.0,
+      "failure_buckets": {
+        "answered_wrong": 38,
+        "needs_clarification_unmet": 13
+      }
+    }
+  ],
+  "verdicts": {
+    "oracle（链路上限，校准用）": [
+      {
+        "task_id": "q01",
+        "ok": true,
+        "reason": "ok",
+        "gold": "383",
+        "got": "383",
+        "steps": 1,
+        "tokens": 168,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q02",
+        "ok": true,
+        "reason": "ok",
+        "gold": "1437",
+        "got": "1437",
+        "steps": 1,
+        "tokens": 168,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q03",
+        "ok": true,
+        "reason": "ok",
+        "gold": "S003",
+        "got": "S003",
+        "steps": 1,
+        "tokens": 168,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q04",
+        "ok": true,
+        "reason": "ok",
+        "gold": "S003",
+        "got": "S003",
+        "steps": 1,
+        "tokens": 168,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q05",
+        "ok": true,
+        "reason": "ok",
+        "gold": "P003",
+        "got": "P003",
+        "steps": 1,
+        "tokens": 168,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q06",
+        "ok": true,
+        "reason": "ok",
+        "gold": "139",
+        "got": "139",
+        "steps": 1,
+        "tokens": 168,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q07",
+        "ok": true,
+        "reason": "ok",
+        "gold": "3",
+        "got": "3",
+        "steps": 1,
+        "tokens": 168,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q08",
+        "ok": true,
+        "reason": "ok",
+        "gold": "1.0881",
+        "got": "1.0881",
+        "steps": 1,
+        "tokens": 168,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q09",
+        "ok": true,
+        "reason": "ok",
+        "gold": "1796",
+        "got": "1796",
+        "steps": 1,
+        "tokens": 168,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q10",
+        "ok": true,
+        "reason": "ok",
+        "gold": "248",
+        "got": "248",
+        "steps": 1,
+        "tokens": 168,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q11",
+        "ok": true,
+        "reason": "ok",
+        "gold": "3.2",
+        "got": "3.2",
+        "steps": 1,
+        "tokens": 168,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q12",
+        "ok": true,
+        "reason": "ok",
+        "gold": "7",
+        "got": "7",
+        "steps": 1,
+        "tokens": 168,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q13",
+        "ok": true,
+        "reason": "ok",
+        "gold": "2026-09-04",
+        "got": "2026-09-04",
+        "steps": 1,
+        "tokens": 168,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q14",
+        "ok": true,
+        "reason": "ok",
+        "gold": "2815",
+        "got": "2815",
+        "steps": 1,
+        "tokens": 168,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q15",
+        "ok": true,
+        "reason": "ok",
+        "gold": "1892",
+        "got": "1892",
+        "steps": 1,
+        "tokens": 168,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q16",
+        "ok": true,
+        "reason": "ok",
+        "gold": "85436.0",
+        "got": "85436.0",
+        "steps": 1,
+        "tokens": 168,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q17",
+        "ok": true,
+        "reason": "ok",
+        "gold": "133",
+        "got": "133",
+        "steps": 1,
+        "tokens": 168,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q18",
+        "ok": true,
+        "reason": "ok",
+        "gold": "6989",
+        "got": "6989",
+        "steps": 1,
+        "tokens": 168,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q19",
+        "ok": true,
+        "reason": "ok",
+        "gold": "1573",
+        "got": "1573",
+        "steps": 1,
+        "tokens": 168,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q20",
+        "ok": true,
+        "reason": "ok",
+        "gold": "1892",
+        "got": "1892",
+        "steps": 1,
+        "tokens": 168,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q21",
+        "ok": true,
+        "reason": "ok",
+        "gold": "66339.7",
+        "got": "66339.7",
+        "steps": 1,
+        "tokens": 168,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q22",
+        "ok": true,
+        "reason": "ok",
+        "gold": "1.3117",
+        "got": "1.3117",
+        "steps": 1,
+        "tokens": 168,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q23",
+        "ok": true,
+        "reason": "ok",
+        "gold": "0.7428",
+        "got": "0.7428",
+        "steps": 1,
+        "tokens": 168,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q24",
+        "ok": true,
+        "reason": "ok",
+        "gold": "1.1506",
+        "got": "1.1506",
+        "steps": 1,
+        "tokens": 168,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q25",
+        "ok": true,
+        "reason": "ok",
+        "gold": "城南三店",
+        "got": "城南三店",
+        "steps": 1,
+        "tokens": 168,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q26",
+        "ok": true,
+        "reason": "ok",
+        "gold": "城东一店",
+        "got": "城东一店",
+        "steps": 1,
+        "tokens": 168,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q27",
+        "ok": true,
+        "reason": "ok",
+        "gold": "10",
+        "got": "10",
+        "steps": 1,
+        "tokens": 168,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q28",
+        "ok": true,
+        "reason": "ok",
+        "gold": "450",
+        "got": "450",
+        "steps": 1,
+        "tokens": 168,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q29",
+        "ok": true,
+        "reason": "ok",
+        "gold": "1.3437",
+        "got": "1.3437",
+        "steps": 1,
+        "tokens": 168,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q30",
+        "ok": true,
+        "reason": "ok",
+        "gold": "2",
+        "got": "2",
+        "steps": 1,
+        "tokens": 168,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q31",
+        "ok": true,
+        "reason": "ok",
+        "gold": "1.0775",
+        "got": "1.0775",
+        "steps": 1,
+        "tokens": 168,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q32",
+        "ok": true,
+        "reason": "ok",
+        "gold": "177",
+        "got": "177",
+        "steps": 1,
+        "tokens": 168,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q33",
+        "ok": true,
+        "reason": "ok",
+        "gold": "572.1",
+        "got": "572.1",
+        "steps": 1,
+        "tokens": 168,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q34",
+        "ok": true,
+        "reason": "ok",
+        "gold": "589.8",
+        "got": "589.8",
+        "steps": 1,
+        "tokens": 168,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q35",
+        "ok": true,
+        "reason": "ok",
+        "gold": "0.2506",
+        "got": "0.2506",
+        "steps": 1,
+        "tokens": 168,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q36",
+        "ok": true,
+        "reason": "ok",
+        "gold": "3285",
+        "got": "3285",
+        "steps": 1,
+        "tokens": 168,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q37",
+        "ok": true,
+        "reason": "ok",
+        "gold": "1",
+        "got": "1",
+        "steps": 1,
+        "tokens": 168,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q38",
+        "ok": true,
+        "reason": "ok",
+        "gold": "0.0939",
+        "got": "0.0939",
+        "steps": 1,
+        "tokens": 168,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q39",
+        "ok": true,
+        "reason": "ok",
+        "gold": "609",
+        "got": "609",
+        "steps": 1,
+        "tokens": 168,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q40",
+        "ok": true,
+        "reason": "ok",
+        "gold": "140760.5",
+        "got": "140760.5",
+        "steps": 1,
+        "tokens": 168,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q41",
+        "ok": true,
+        "reason": "ok",
+        "gold": "33.83",
+        "got": "33.83",
+        "steps": 1,
+        "tokens": 168,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q42",
+        "ok": true,
+        "reason": "ok",
+        "gold": "12710",
+        "got": "12710",
+        "steps": 1,
+        "tokens": 168,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q43",
+        "ok": true,
+        "reason": "ok",
+        "gold": "2026-09-03",
+        "got": "2026-09-03",
+        "steps": 1,
+        "tokens": 168,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q44",
+        "ok": true,
+        "reason": "ok",
+        "gold": "P002",
+        "got": "P002",
+        "steps": 1,
+        "tokens": 168,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q45",
+        "ok": true,
+        "reason": "ok",
+        "gold": "0.23",
+        "got": "0.23",
+        "steps": 1,
+        "tokens": 168,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q46",
+        "ok": true,
+        "reason": "ok",
+        "gold": "P004",
+        "got": "P004",
+        "steps": 1,
+        "tokens": 168,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q47",
+        "ok": true,
+        "reason": "ok",
+        "gold": "3.0603",
+        "got": "3.0603",
+        "steps": 1,
+        "tokens": 168,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q48",
+        "ok": true,
+        "reason": "ok",
+        "gold": "",
+        "got": "请补充规格相关信息后再查询。",
+        "steps": 0,
+        "tokens": 87,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q49",
+        "ok": true,
+        "reason": "ok",
+        "gold": "",
+        "got": "请补充时间相关信息后再查询。",
+        "steps": 0,
+        "tokens": 87,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q50",
+        "ok": true,
+        "reason": "ok",
+        "gold": "",
+        "got": "请补充门店相关信息后再查询。",
+        "steps": 0,
+        "tokens": 87,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q51",
+        "ok": true,
+        "reason": "ok",
+        "gold": "",
+        "got": "请补充门店相关信息后再查询。",
+        "steps": 0,
+        "tokens": 87,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q52",
+        "ok": true,
+        "reason": "ok",
+        "gold": "",
+        "got": "请补充门店相关信息后再查询。",
+        "steps": 0,
+        "tokens": 87,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q53",
+        "ok": true,
+        "reason": "ok",
+        "gold": "",
+        "got": "请补充指标相关信息后再查询。",
+        "steps": 0,
+        "tokens": 87,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q54",
+        "ok": true,
+        "reason": "ok",
+        "gold": "",
+        "got": "请补充哪两个相关信息后再查询。",
+        "steps": 0,
+        "tokens": 87,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q55",
+        "ok": true,
+        "reason": "ok",
+        "gold": "",
+        "got": "请补充定义相关信息后再查询。",
+        "steps": 0,
+        "tokens": 87,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q56",
+        "ok": true,
+        "reason": "ok",
+        "gold": "",
+        "got": "请补充哪一周相关信息后再查询。",
+        "steps": 0,
+        "tokens": 87,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q57",
+        "ok": true,
+        "reason": "ok",
+        "gold": "",
+        "got": "请补充门店相关信息后再查询。",
+        "steps": 0,
+        "tokens": 87,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q58",
+        "ok": true,
+        "reason": "ok",
+        "gold": "",
+        "got": "请补充哪个产品相关信息后再查询。",
+        "steps": 0,
+        "tokens": 87,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q59",
+        "ok": true,
+        "reason": "ok",
+        "gold": "",
+        "got": "请补充门店相关信息后再查询。",
+        "steps": 0,
+        "tokens": 87,
+        "stop_reason": "clarified"
+      },
+      {
+        "task_id": "q60",
+        "ok": true,
+        "reason": "ok",
+        "gold": "",
+        "got": "请补充时间相关信息后再查询。",
+        "steps": 0,
+        "tokens": 87,
+        "stop_reason": "clarified"
+      }
+    ],
+    "heuristic（朴素实现基线）": [
+      {
+        "task_id": "q01",
+        "ok": true,
+        "reason": "ok",
+        "gold": "383",
+        "got": "383",
+        "steps": 1,
+        "tokens": 165,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q02",
+        "ok": true,
+        "reason": "ok",
+        "gold": "1437",
+        "got": "1437",
+        "steps": 1,
+        "tokens": 165,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q03",
+        "ok": true,
+        "reason": "ok",
+        "gold": "S003",
+        "got": "S003",
+        "steps": 1,
+        "tokens": 165,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q04",
+        "ok": true,
+        "reason": "ok",
+        "gold": "S003",
+        "got": "S003",
+        "steps": 1,
+        "tokens": 165,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q05",
+        "ok": true,
+        "reason": "ok",
+        "gold": "P003",
+        "got": "P003",
+        "steps": 1,
+        "tokens": 165,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q06",
+        "ok": false,
+        "reason": "answered_wrong",
+        "gold": "139",
+        "got": "119",
+        "steps": 1,
+        "tokens": 165,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q07",
+        "ok": false,
+        "reason": "answered_wrong",
+        "gold": "3",
+        "got": "1573",
+        "steps": 1,
+        "tokens": 165,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q08",
+        "ok": false,
+        "reason": "answered_wrong",
+        "gold": "1.0881",
+        "got": "1.363",
+        "steps": 1,
+        "tokens": 165,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q09",
+        "ok": false,
+        "reason": "answered_wrong",
+        "gold": "1796",
+        "got": "5721",
+        "steps": 1,
+        "tokens": 165,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q10",
+        "ok": false,
+        "reason": "answered_wrong",
+        "gold": "248",
+        "got": "1892",
+        "steps": 1,
+        "tokens": 165,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q11",
+        "ok": false,
+        "reason": "answered_wrong",
+        "gold": "3.2",
+        "got": "119",
+        "steps": 1,
+        "tokens": 165,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q12",
+        "ok": false,
+        "reason": "answered_wrong",
+        "gold": "7",
+        "got": "12",
+        "steps": 1,
+        "tokens": 165,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q13",
+        "ok": false,
+        "reason": "answered_wrong",
+        "gold": "2026-09-04",
+        "got": "2026-08-26",
+        "steps": 1,
+        "tokens": 165,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q14",
+        "ok": false,
+        "reason": "answered_wrong",
+        "gold": "2815",
+        "got": "5721",
+        "steps": 1,
+        "tokens": 165,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q15",
+        "ok": true,
+        "reason": "ok",
+        "gold": "1892",
+        "got": "1892",
+        "steps": 1,
+        "tokens": 165,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q16",
+        "ok": false,
+        "reason": "answered_wrong",
+        "gold": "85436.0",
+        "got": "1437",
+        "steps": 1,
+        "tokens": 165,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q17",
+        "ok": false,
+        "reason": "answered_wrong",
+        "gold": "133",
+        "got": "3945",
+        "steps": 1,
+        "tokens": 165,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q18",
+        "ok": false,
+        "reason": "answered_wrong",
+        "gold": "6989",
+        "got": "12710",
+        "steps": 1,
+        "tokens": 165,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q19",
+        "ok": true,
+        "reason": "ok",
+        "gold": "1573",
+        "got": "1573",
+        "steps": 1,
+        "tokens": 165,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q20",
+        "ok": false,
+        "reason": "answered_wrong",
+        "gold": "1892",
+        "got": "5721",
+        "steps": 1,
+        "tokens": 165,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q21",
+        "ok": false,
+        "reason": "answered_wrong",
+        "gold": "66339.7",
+        "got": "5721",
+        "steps": 1,
+        "tokens": 165,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q22",
+        "ok": false,
+        "reason": "answered_wrong",
+        "gold": "1.3117",
+        "got": "1.858",
+        "steps": 1,
+        "tokens": 165,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q23",
+        "ok": false,
+        "reason": "answered_wrong",
+        "gold": "0.7428",
+        "got": "12",
+        "steps": 1,
+        "tokens": 165,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q24",
+        "ok": false,
+        "reason": "answered_wrong",
+        "gold": "1.1506",
+        "got": "18.7574",
+        "steps": 1,
+        "tokens": 165,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q25",
+        "ok": false,
+        "reason": "answered_wrong",
+        "gold": "城南三店",
+        "got": "S003",
+        "steps": 1,
+        "tokens": 165,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q26",
+        "ok": false,
+        "reason": "answered_wrong",
+        "gold": "城东一店",
+        "got": "1573",
+        "steps": 1,
+        "tokens": 165,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q27",
+        "ok": false,
+        "reason": "answered_wrong",
+        "gold": "10",
+        "got": "12",
+        "steps": 1,
+        "tokens": 165,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q28",
+        "ok": false,
+        "reason": "answered_wrong",
+        "gold": "450",
+        "got": "1321",
+        "steps": 1,
+        "tokens": 165,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q29",
+        "ok": false,
+        "reason": "answered_wrong",
+        "gold": "1.3437",
+        "got": "18.7574",
+        "steps": 1,
+        "tokens": 165,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q30",
+        "ok": false,
+        "reason": "answered_wrong",
+        "gold": "2",
+        "got": "537",
+        "steps": 1,
+        "tokens": 165,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q31",
+        "ok": false,
+        "reason": "answered_wrong",
+        "gold": "1.0775",
+        "got": "4.5395",
+        "steps": 1,
+        "tokens": 165,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q32",
+        "ok": false,
+        "reason": "answered_wrong",
+        "gold": "177",
+        "got": "5721",
+        "steps": 1,
+        "tokens": 165,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q33",
+        "ok": false,
+        "reason": "answered_wrong",
+        "gold": "572.1",
+        "got": "5721",
+        "steps": 1,
+        "tokens": 165,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q34",
+        "ok": false,
+        "reason": "answered_wrong",
+        "gold": "589.8",
+        "got": "5721",
+        "steps": 1,
+        "tokens": 165,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q35",
+        "ok": false,
+        "reason": "answered_wrong",
+        "gold": "0.2506",
+        "got": "450",
+        "steps": 1,
+        "tokens": 165,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q36",
+        "ok": false,
+        "reason": "answered_wrong",
+        "gold": "3285",
+        "got": "12710",
+        "steps": 1,
+        "tokens": 165,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q37",
+        "ok": false,
+        "reason": "answered_wrong",
+        "gold": "1",
+        "got": "12",
+        "steps": 1,
+        "tokens": 165,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q38",
+        "ok": false,
+        "reason": "answered_wrong",
+        "gold": "0.0939",
+        "got": "5721",
+        "steps": 1,
+        "tokens": 165,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q39",
+        "ok": false,
+        "reason": "answered_wrong",
+        "gold": "609",
+        "got": "P004",
+        "steps": 1,
+        "tokens": 165,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q40",
+        "ok": false,
+        "reason": "answered_wrong",
+        "gold": "140760.5",
+        "got": "5721",
+        "steps": 1,
+        "tokens": 165,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q41",
+        "ok": false,
+        "reason": "answered_wrong",
+        "gold": "33.83",
+        "got": "5721",
+        "steps": 1,
+        "tokens": 165,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q42",
+        "ok": false,
+        "reason": "answered_wrong",
+        "gold": "12710",
+        "got": "5721",
+        "steps": 1,
+        "tokens": 165,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q43",
+        "ok": false,
+        "reason": "answered_wrong",
+        "gold": "2026-09-03",
+        "got": "2026-08-26",
+        "steps": 1,
+        "tokens": 165,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q44",
+        "ok": true,
+        "reason": "ok",
+        "gold": "P002",
+        "got": "P002",
+        "steps": 1,
+        "tokens": 165,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q45",
+        "ok": false,
+        "reason": "answered_wrong",
+        "gold": "0.23",
+        "got": "465",
+        "steps": 1,
+        "tokens": 165,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q46",
+        "ok": true,
+        "reason": "ok",
+        "gold": "P004",
+        "got": "P004",
+        "steps": 1,
+        "tokens": 165,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q47",
+        "ok": false,
+        "reason": "answered_wrong",
+        "gold": "3.0603",
+        "got": "12",
+        "steps": 1,
+        "tokens": 165,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q48",
+        "ok": false,
+        "reason": "needs_clarification_unmet",
+        "gold": "",
+        "got": "3170",
+        "steps": 1,
+        "tokens": 165,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q49",
+        "ok": false,
+        "reason": "needs_clarification_unmet",
+        "gold": "",
+        "got": "3945",
+        "steps": 1,
+        "tokens": 165,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q50",
+        "ok": false,
+        "reason": "needs_clarification_unmet",
+        "gold": "",
+        "got": "1573",
+        "steps": 1,
+        "tokens": 165,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q51",
+        "ok": false,
+        "reason": "needs_clarification_unmet",
+        "gold": "",
+        "got": "18.7574",
+        "steps": 1,
+        "tokens": 165,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q52",
+        "ok": false,
+        "reason": "needs_clarification_unmet",
+        "gold": "",
+        "got": "12710",
+        "steps": 1,
+        "tokens": 165,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q53",
+        "ok": false,
+        "reason": "needs_clarification_unmet",
+        "gold": "",
+        "got": "5721",
+        "steps": 1,
+        "tokens": 165,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q54",
+        "ok": false,
+        "reason": "needs_clarification_unmet",
+        "gold": "",
+        "got": "12710",
+        "steps": 1,
+        "tokens": 165,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q55",
+        "ok": false,
+        "reason": "needs_clarification_unmet",
+        "gold": "",
+        "got": "12710",
+        "steps": 1,
+        "tokens": 165,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q56",
+        "ok": false,
+        "reason": "needs_clarification_unmet",
+        "gold": "",
+        "got": "12710",
+        "steps": 1,
+        "tokens": 165,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q57",
+        "ok": false,
+        "reason": "needs_clarification_unmet",
+        "gold": "",
+        "got": "1573",
+        "steps": 1,
+        "tokens": 165,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q58",
+        "ok": false,
+        "reason": "needs_clarification_unmet",
+        "gold": "",
+        "got": "12710",
+        "steps": 1,
+        "tokens": 165,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q59",
+        "ok": false,
+        "reason": "needs_clarification_unmet",
+        "gold": "",
+        "got": "41.6721",
+        "steps": 1,
+        "tokens": 165,
+        "stop_reason": "answered"
+      },
+      {
+        "task_id": "q60",
+        "ok": false,
+        "reason": "needs_clarification_unmet",
+        "gold": "",
+        "got": "12710",
+        "steps": 1,
+        "tokens": 165,
+        "stop_reason": "answered"
+      }
+    ]
+  },
+  "mutation_suite": {
+    "hit": 6,
+    "total": 6,
+    "accuracy": 1.0,
+    "cases": [
+      {
+        "mutation": "wrong_filter",
+        "expected": "answered_wrong",
+        "got": "answered_wrong",
+        "hit": true
+      },
+      {
+        "mutation": "wrong_aggregation",
+        "expected": "answered_wrong",
+        "got": "answered_wrong",
+        "hit": true
+      },
+      {
+        "mutation": "wrong_table",
+        "expected": "answered_wrong",
+        "got": "answered_wrong",
+        "hit": true
+      },
+      {
+        "mutation": "unsafe_sql",
+        "expected": "unsafe_sql",
+        "got": "unsafe_sql",
+        "hit": true
+      },
+      {
+        "mutation": "no_answer",
+        "expected": "no_answer",
+        "got": "no_answer",
+        "hit": true
+      },
+      {
+        "mutation": "step_budget",
+        "expected": "step_budget_exceeded",
+        "got": "step_budget_exceeded",
+        "hit": true
+      }
+    ]
+  }
+}

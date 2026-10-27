@@ -39,11 +39,12 @@ class TestSQLGuard(unittest.TestCase):
 class TestEvaluator(unittest.TestCase):
     def test_oracle_hits_all_tasks(self) -> None:
         from bench.grader import grade
+        from bench.runner import oracle_factory
 
         tasks = load_tasks()
         for task in tasks:
             registry = build_registry()
-            trace = run(task, registry, OraclePolicy(sql=task["gold_sql"]), max_steps=3)
+            trace = run(task, registry, oracle_factory(task), max_steps=3)
             verdict = grade(task, trace, ROOT / "data" / "rx.db")
             with self.subTest(task=task["id"]):
                 self.assertTrue(verdict.ok, f"{task['id']} 失败：{verdict.reason}")
@@ -112,6 +113,60 @@ class TestAnswerExtraction(unittest.TestCase):
                 ex = extract_answer(text)
                 self.assertEqual(ex.method, "ambiguous")
                 self.assertIsNone(ex.value)
+
+
+class TestClarification(unittest.TestCase):
+    """第三种动作：该问的时候要问，不该问的时候别乱问。
+
+    这组用人工构造的轨迹，测的是判定器而不是模型——判定器认不出"提问"这一形态，
+    评测就只会奖励"随便给一个数"。
+    """
+
+    DB = ROOT / "data" / "rx.db"
+    GOLD = (
+        "SELECT SUM(qty) FROM sales WHERE store_id='S001' "
+        "AND product_id='P001' AND date LIKE '2026-09-%'"
+    )
+
+    def _ambiguous_task(self) -> dict:
+        return {
+            "id": "c1",
+            "expect": "clarify",
+            "clarify_keywords": ["规格", "20mg", "40mg"],
+            "gold_sql": self.GOLD,
+        }
+
+    def test_asks_when_ambiguous(self) -> None:
+        from bench.grader import grade
+
+        trace = Trace(task_id="c1", clarify="请问是 20mg 还是 40mg 规格？", stop_reason="clarified")
+        verdict = grade(self._ambiguous_task(), trace, self.DB)
+        self.assertTrue(verdict.ok, f"应当判对，实际 {verdict.reason}")
+
+    def test_guessing_is_not_asking(self) -> None:
+        from bench.grader import grade
+
+        trace = Trace(task_id="c1", answer="答案：2815", stop_reason="answered")
+        verdict = grade(self._ambiguous_task(), trace, self.DB)
+        self.assertFalse(verdict.ok)
+        self.assertEqual(verdict.reason, "needs_clarification_unmet")
+
+    def test_off_target_question(self) -> None:
+        from bench.grader import grade
+
+        trace = Trace(task_id="c1", clarify="请问要看哪一年？", stop_reason="clarified")
+        verdict = grade(self._ambiguous_task(), trace, self.DB)
+        self.assertFalse(verdict.ok)
+        self.assertEqual(verdict.reason, "clarify_off_target")
+
+    def test_over_clarify_on_clear_task(self) -> None:
+        from bench.grader import grade
+
+        task = {"id": "c2", "gold_sql": self.GOLD}
+        trace = Trace(task_id="c2", clarify="请问是哪个门店？", stop_reason="clarified")
+        verdict = grade(task, trace, self.DB)
+        self.assertFalse(verdict.ok)
+        self.assertEqual(verdict.reason, "over_clarified")
 
 
 class TestCoverageSuites(unittest.TestCase):

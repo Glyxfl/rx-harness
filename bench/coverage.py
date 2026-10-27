@@ -187,9 +187,12 @@ def guard_suite(db_path: Path = DB_PATH) -> dict[str, Any]:
 
     _cleanup_attach(db_path)
 
-    # 误报面：14 条 gold SQL 必须全部被放行，否则护栏就成了"什么都挡"
+    # 误报面：所有 gold SQL 必须全部被放行，否则护栏就成了"什么都挡"
+    # 需要澄清的任务没有 gold SQL（正确形态是提问），不参与这一项
     false_positive = []
     for task in load_tasks():
+        if not task.get("gold_sql"):
+            continue
         try:
             check_sql(task["gold_sql"])
             false_positive.append({"id": task["id"], "passed": True, "reason": ""})

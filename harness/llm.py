@@ -46,6 +46,24 @@ class OraclePolicy:
 
 
 @dataclass
+class ClarifyPolicy:
+    """已知该题的信息缺口，直接给出澄清问句。
+
+    它只用来校准"判定器能否识别提问这一形态"，不代表模型能力——它拿到的就是答案。
+    这是本项目一贯的做法：先把尺子校好，再拿尺子量人。
+    """
+
+    keywords: list[str]
+
+    def decide(self, ctx: dict[str, Any]) -> Decision:
+        gap = self.keywords[0] if self.keywords else "所需信息"
+        return Decision(
+            thought="问题缺少必要信息，先行确认",
+            clarify=f"请补充{gap}相关信息后再查询。",
+        )
+
+
+@dataclass
 class MutatedPolicy:
     """在 Oracle 路径上施加单一故障，模拟真实的 agent 失败方式。"""
 
@@ -179,6 +197,9 @@ SYSTEM_PROMPT = """你是零售业务数据助手。规则：
 5. 只允许 SELECT，禁止写操作。
 6. answer 里最后必须单独一行以「答案：」开头，后面只跟结果值本身，
    不要把年份、规格、门店编号写进这一行。例如 "答案：1234" 或 "答案：S001"。
+7. 若问题缺少必要信息（时间范围、门店、产品规格、指标口径等），且无法从表结构或历史上文推断，
+   不要猜测，也不要先查一遍再猜，直接输出：{"thought":"...","clarify":"<向用户确认的一句话>"}
+   一次问清最关键的那个缺口，不要罗列一堆问题。宁可问一次，也不要给一个猜出来的数字。
 """
 
 
@@ -256,6 +277,8 @@ class OpenAICompatPolicy:
             return Decision(thought="JSON 解析失败", answer=raw.strip())
         if obj.get("answer") is not None:
             return Decision(thought=obj.get("thought", ""), answer=str(obj["answer"]))
+        if obj.get("clarify") is not None:
+            return Decision(thought=obj.get("thought", ""), clarify=str(obj["clarify"]))
         tool = obj.get("tool") or obj.get("name")
         if tool:
             return Decision(thought=obj.get("thought", ""), call=ToolCall(tool, obj.get("args") or {}))
