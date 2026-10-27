@@ -12,6 +12,7 @@ rx-harness 是一个最小化的 text-to-SQL Agent 运行框架，附带一套�
 - 判定器输出对错之外的失败归因标签（12 类，互斥）
 - 针对判定器自身的变异测试
 - 一组不需要模型凭证即可运行的工程属性实测
+- 自进化层：dev/holdout 划分 + 归因驱动补丁 + 修改面白名单，用来验证"从失败中学习"能否成立
 
 任务集分四层，每层针对一种不同的失败原因：
 
@@ -333,7 +334,7 @@ python cli.py evolve --modes cheat --allow-bench     # 演示无约束时会发�
 
 *自进化（`evolve/`）*：这一层最该考虑换。若目标是自动优化 prompt，DSPy 的 MIPROv2 一类做法比手写贪心更系统（它会做指令与示例的联合搜索、带 bootstrap 采样）。**本项目的做法是"在给定算子空间里贪心 + 留出集验证"，价值在于把"泛化差距"变成了可观测数字（0 pp vs 26.7 pp），不在于搜索效率。** 若换成 DSPy，这套 dev/holdout 与审计机制仍然需要，因为 DSPy 优化完同样会过拟合 dev。
 
-*权衡结论*：如果目标是尽快做出一个可用的取数 Agent，用 LangChain 更省事，应当换；如果目标是**测量**取数 Agent 的行为并让人相信这个测量，框架会成为不可控变量，不换是对的。两者不冲突——本项目的判定器可以直接拿去评一个 LangChain 写的 Agent。
+*权衡结论*：如果目标是尽快做出一个可用的取数 Agent，用 LangChain 更省事，应当换；如果目标是**测量**取数 Agent 的行为并让人相信这个测量，框架会成为不可控变量，不换是对的。两者不冲突——本项目的判定器可以直接拿去评一个 LangChain 写的 Agent。依赖实测（39 个传递依赖）、触发替换的条件、以及未完成的测量，见 [`docs/tooling-decision.md`](docs/tooling-decision.md)。
 
 ## 后续计划
 
@@ -349,6 +350,7 @@ python cli.py evolve --modes cheat --allow-bench     # 演示无约束时会发�
 ## 相关文档
 
 - [`docs/model-coverage.md`](docs/model-coverage.md)：模型能力与工程化改造的覆盖评估，将八项改造拆分为单次正确性与工程属性两个维度逐项判定
+- [`docs/tooling-decision.md`](docs/tooling-decision.md)：为什么不用 LangChain，以及在哪些条件下应当换（含依赖实测与未测项说明）
 - [`reports/`](reports/)：原始评测报告（JSON 与 Markdown），含六组消融、工程属性实测与三组自进化对照（`evolve-*.md`）
 - [`skills/schema/SKILL.md`](skills/schema/SKILL.md)：字段与口径注入的写法，实测中收益最高的一层
 
